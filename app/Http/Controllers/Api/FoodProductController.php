@@ -34,8 +34,13 @@ class FoodProductController extends Controller
                 if ($foodProduct->image) {
                     $imageArray = json_decode($foodProduct->image, true);
 
-                    foreach ($imageArray as $index => $filename) {
-                        $imageUrls[$index + 1] = env('APP_URL') . '/foodproductImage/' . $filename;
+                    // Check if there are any images
+                    if (!empty($imageArray)) {
+                        // Get the first image URL
+                        $firstImageUrl = env('APP_URL') . '/foodproductImage/' . $imageArray[0];
+
+                        // Assign the first image URL directly to 'food_image_url'
+                        $imageUrls['food_image_url'] = $firstImageUrl;
                     }
                 }
 
