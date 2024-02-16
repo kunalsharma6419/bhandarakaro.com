@@ -9,7 +9,7 @@ return [
     |   gateway = CCAvenue / PayUMoney / EBS / Citrus / InstaMojo / ZapakPay / Paytm / Mocker
     */
 
-    'gateway' => 'ccavenue',                // Replace with the name of default gateway you want to use
+    'gateway' => 'CCAvenue',                // Replace with the name of default gateway you want to use
 
     'testMode'  => true,                   // True for Testing the Gateway [For production false]
 
