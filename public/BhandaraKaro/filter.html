@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BhandaraKaro</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Nunito+Sans:ital,wght@1,600&family=Roboto:wght@500&family=Rubik:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg container">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img src="./images/LOgo3.png" alt="" width="285" height="84"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <input
+                  type="text"
+                  id="inputPassword6"
+                  class="form-control search_input"
+                  placeholder="Search for Vendors, bhandara meals or prasads"
+                  aria-describedby="passwordHelpInline"
+                />
+              </div>
+              <div class="col-auto">
+                <select
+                  class="form-select select_container"
+                  aria-label="select example"
+                  disabled
+                >
+                  <option selected>All categories</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn">
+                  <img src="./images/Search.png" alt="" />
+                </button>
+              </div>
+            </div>
+          </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar_item">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help & support</a>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">
+                <img src="./images/telegram.png" alt=""
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img src="./images/instagram.png" alt=""
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img src="./images/Vector 2998.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- category  -->
+    <div class="category_container_main py-1">
+      <div class="category_container container">
+        <div class="category_container_item">
+          <div class="category_logo_container">
+            <img src="./images/categories.png" alt="" />
+            <span> Categories </span>
+          </div>
+          <div
+            class="category_dropDown_container"
+            id="category_dropDown_container"
+          >
+            <div class="dropdown">
+              <button
+                class="btn text-light dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                USD
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="category_dropDown_container"
+            id="category_dropDown_container"
+          >
+            <div class="dropdown">
+              <button
+                class="btn text-light dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                English
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="category_container_item">
+          <div class="men_clintele_container">
+            <img
+              src="./images/play_store.webp"
+              alt=""
+              width="201"
+              height="64"
+            />
+            <div class="men_clintele_heading_container">
+              <!-- <p class="men_clintele_heading_container_first">
+                Weekly Men's Toiletries Coupons.
+              </p>
+              <p class="men_clintele_heading_container_second">
+                We extend exclusive discounts to our male clientele
+              </p> -->
+              <img
+                src="./images/app_store.webp"
+                alt=""
+                width="201"
+                height="64"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="category_container_item">
+          <div class="right_container">
+            <div class="right_container_item">
+              <img src="./images/Sign in.png" alt="" /><span>Sign in</span>
+            </div>
+            <div class="right_container_item">
+              <img src="./images/Vector.png" alt="" /> <span>Favorites</span>
+            </div>
+            <div class="right_container_item">
+              <img src="./images/Card.png" alt="" />
+              <span>Card</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <!-- options -->
+    <div class="all_category_container container">
+      <li class="category_item">Main Dishes</li>
+      <li class="category_item">North Indian</li>
+      <li class="category_item">South Indian</li>
+      <li class="category_item">Sweets</li>
+      <li class="category_item">Snacks</li>
+      <li class="category_item">Beverages</li>
+      <li class="category_item">Desserts</li>
+      <li class="category_item">Condiments & Accompaniments:</li>
+      <li class="category_item">Thali & Customisables</li>
+      <li class="category_item">On Demand Items</li>
+    </div>
+    <!--  -->
+    <div class="filter_header">
+    <div class="filter_header_item container">
+        <div class="filter_header_items"> Homepage ></div>
+        <div class="filter_header_items">Women > </div>
+
+        <div class="filter_header_items"> Clothes</div>
+
+    </div>
+</div>
+<div class="fiter_header_main">
+
+
+<div class="filter_header_second container">
+    <div class="filter_header_left">  <span class="women_para">Women</span> <span class="item_para">100 items</span> </div>
+    <div class="filter_header_right">                <select class="form-select select_container" aria-label="select example" style="background-color: #E9E9E9 !important; " >
+        <option selected>All categories</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select></div>
+</div>
+</div>
+<!--  -->
+<!--  -->
+<!--  -->
+<div class="all_category_container_main container">
+<div class="all_category_container1">
+    <div class="all_category_item_filter">
+        <div class="all_category_filter">
+            <img src="./images/filter_vector.png" alt=""> &nbsp; &nbsp;
+            <span>All Category</span>
+        </div>
+        <div class="brand_search" style="margin-top: 2rem;">
+            <p>BRAND</p>
+            <div class="row g-3 align-items-center">
+                
+                <div class="col-auto">
+                  <input type="text" placeholder="Search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+               
+              </div>
+        </div>
+        <div class="brand_search" style="margin-top: 2rem;">
+            <p>Model</p>
+           <div class="brand_search_size">
+            <div class="brand_search_size_container">
+                <div class="brand_search_size_item1">
+                    <p>Short</p>
+                     </div>
+                <div class="brand_search_size_item2">
+                    <p>60</p>
+                    </div>
+            </div>
+           </div>
+           <div class="brand_search_size">
+            <div class="brand_search_size_container">
+                <div class="brand_search_size_item1">
+                    <p>Mid-length </p>
+                     </div>
+                <div class="brand_search_size_item2">
+                    <p>60</p>
+                    </div>
+            </div>
+           </div> <div class="brand_search_size">
+            <div class="brand_search_size_container">
+                <div class="brand_search_size_item1">
+                    <p>Sweather</p>
+                     </div>
+                <div class="brand_search_size_item2">
+                    <p>60</p>
+                    </div>
+            </div>
+           </div> <div class="brand_search_size">
+            <div class="brand_search_size_container">
+                <div class="brand_search_size_item1">
+                    <p>Party Dresses</p>
+                     </div>
+                <div class="brand_search_size_item2">
+                    <p>60</p>
+                    </div>
+            </div>
+           </div> <div class="brand_search_size">
+            <div class="brand_search_size_container">
+                <div class="brand_search_size_item1">
+                    <p>Regular Fit</p>
+                     </div>
+                <div class="brand_search_size_item2">
+                    <p>60</p>
+                    </div>
+            </div>
+           </div>
+        </div>
+        <div class="brand_search" style="margin-top: 2rem;">
+            <p>STYLE</p>
+            <div class="checkbox_xontainer">
+
+                <div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Casual
+                    </label>
+                  </div>
+                  <div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Business casual
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Bohemian
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Minimalish
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Uniqlo
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Zara
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Gucci
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Mango
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Ralph Lauren
+                    </label>
+                  </div><div class="form-check py-1">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Calvin Klein
+                    </label>
+                  </div>
+            </div>
+        </div>
+        <div class="brand_search" style="margin-top: 2rem;">
+          <p>COLOUR</p>
+          <div class="row g-3 align-items-center">
+              
+              <span class="colour_span"></span>
+              <span class="colour_span" style="background-color: 
+              #F7DDD0;"></span>
+              <span class="colour_span" style="background-color: 
+              #FF9D41;"></span>
+            </div>
+      </div>
+        <div class="brand_search" style="margin-top: 2rem;">
+            <p>SIZE</p>
+            <div class="button_group_colour">
+                <button>2ZS</button>
+                <button>XS</button>
+                <button>S</button>
+                <button>M</button>
+               
+
+            </div>
+            <div class="button_group_colour">
+               
+                <button>L</button>
+                <button>XL</button>
+                <button>2XL</button>
+                <button>3XL</button>
+
+            </div>
+              </div>
+              <div class="brand_search" style="margin-top: 2rem;">
+                <p>PRICE</p>
+                <input type="range" class="form-range" id="customRange1">
+               </div>
+               <div class="min_max_container">
+                   <p class="min">Minimum $200</p><p class="min">Maximum $500</p>
+               </div>
+               <p class="product_min_max">878 products found</p>
+            </div>
+            <div class="all_category_item_container">
+
+            
+            <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+              <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+              <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+              <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+              <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+              <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+              <div class="all_category_item">
+                <img src="./images/model_pic1.png" class="img-fluid" alt="" />
+                <!--  -->
+                <div class="top_hundred_des">
+                  <div class="top_hundred_des1">
+                    <p class="top_hundred_des1_para1">Mango</p>
+                    <p class="top_hundred_des1_para2">
+                      Kimono & Caftan - Black - Regular fit
+                    </p>
+                  </div>
+                  <div class="top_hundred_des2">
+                    <img src="./images/vector_star.png" alt="" />
+                  </div>
+                </div>
+                <div class="shopping_item_star1">
+                  <span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span
+                  ><span><img src="./images/Star 2.png" alt="" /></span>
+                </div>
+                <div class="shopping_item_rate2">
+                  <span class="price2">$69.98</span>
+                  <span class="discount">$123.99</span>
+                  <span class="descount_perc">-40%</span>
+                </div>
+              </div>
+            </div>
+              
+        </div>
+    </div>
+
+</div>
+    <!-- footer_header -->
+    <div class="footer_header_main">
+      <div class="luminae_store">
+        <div class="luminae_store_heading text-center">
+          <p><img src="./images/LOgo3.png" width="285" height="84" /></p>
+          <span>KARO</span>
+        </div>
+        <div class="luminae_para text-center">
+          <p>
+            Register your email not to miss the last minutes off+ Free delivery
+          </p>
+          <div class="button_container">
+            <div class="input_email">
+              <div class="row g-4 align-items-center">
+                <div class="col-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    id="inputPassword6"
+                    class="form-control"
+                    aria-describedby="passwordHelpInline"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="input_button">
+              <button type="button" class="btn btn-light">
+                <img src="./images/Vector 42 (Stroke).png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+
+      <!--  -->
+      <!--  -->
+      <div class="footer_header_part2">
+        <div class="footer_header_ul">
+          <li>Company</li>
+          <li>About US</li>
+          <li>Our Store</li>
+          <li>Contact Us</li>
+        </div>
+        <div class="footer_header_ul">
+          <li>Career Opportunities</li>
+          <li>Selling Programs</li>
+          <li>Advertise</li>
+          <li>Cooperation</li>
+        </div>
+        <div class="footer_header_ul">
+          <li>How to Buy</li>
+          <li>Making Payments</li>
+          <li>Delivery Options</li>
+          <li>Buyer Protection</li>
+          <li>New User Guide</li>
+        </div>
+        <div class="footer_header_ul">
+          <li>Help</li>
+          <li>Contact Us</li>
+          <li>FAQ</li>
+          <li>Privacy Policy</li>
+        </div>
+      </div>
+    </div>
+    <!-- footer_part_3 -->
+    <div class="footer_part_3 container">
+      <div class="left_footer_container">
+        <img src="./images/visa.png" alt="" />
+        <img src="./images/image-113.png" alt="" />
+        <img src="./images/image-114.png" alt="" />
+      </div>
+      <div class="right_footer_container">
+        <div class="dropdown">
+          <button
+            class="btn dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            English
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Hindi</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer_part_4 container">
+      <div class="left_footer_container">
+        <p>165-179 Forster Road City of Monash, Melbourne, Australia</p>
+      </div>
+      <div class="mid_footer_container">
+        <p>©2023 Copyright in reserved for lumine shop</p>
+      </div>
+      <div class="right_footer_container">
+        <img src="./images/telegram.png" alt="" /><img
+          src="./images/instagram.png"
+          alt=""
+        />
+        <img src="./images/Vector 2998.png" alt="" />
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

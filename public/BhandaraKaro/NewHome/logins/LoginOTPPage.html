@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <title>LoginOTP</title>
+  </head>
+  <body>
+    <div
+      class="w-full h-screen LoginOTPBackgroundImage bg-no-repeat bg-cover bg-left md:bg-center relative flex sm:block flex-col"
+    >
+      <div class="sm:hidden h-[45%]s border border-red-900">
+        <img src="./public/img/trivandrum.webp" class="w-full h-full" alt="" />
+      </div>
+
+      <div class="grow relative sm:static">
+        <!-- content -->
+        <div
+          class="min-h-full sm:w-[410px] md:w-[420px] min-h-[440px]s h-fit bg-[#F3EFEF] absolute right-0 w-full sm:right-1/2 sm:top-[55%] sm:translate-x-1/2 sm:-translate-y-1/2 lg:right-[10%] lg:translate-x-0 bottom-0 sm:min-h-0 rounded-t-[3rem] sm:rounded-[24px] animate-right-box bg-red-200"
+          style="background-color: hsla(0, 0%, 100%, 0.7);"
+        >
+          <a href="./index.html"
+            ><img
+              class="w-[220px] md:w-[260px] h-[100px]s rounded-[30px] absolute top-[-21%] md:top-[-22%] left-1/2 translate-y-1/2 -translate-x-1/2"
+              src="../images/376x156.png"
+              alt="logoImage"
+              style="background-color: hsla(0, 0%, 100%, 0.7);"
+          /></a>
+
+          <!-- {/* content is here */} -->
+          <div
+            class="h-full flex items-end justify-center pt-[3.5rem] sm:pt-[4rem] md:pt-[4.5rem] rounded-b-[1rem]s"
+          >
+            <!-- text here  -->
+            <div class="w-[80%] mb-[2rem] sm:mb-[1.2rem]s">
+              <div class="font-SulphurPoint text-center my-2 mb-5">
+                <p
+                  class="font-bold text-2xl sm:text-[28px] md:text-3xl text-[#2D2D2D]"
+                >
+                  One Time Password
+                </p>
+                <p
+                  class="font-normal text-[13px] sm:text-sm md:text-base text-[#989898] mt-1"
+                >
+                  Login to your account
+                </p>
+              </div>
+
+              <!-- {/* select your type */} -->
+              <div class="py-7">
+                <div class="flex justify-center gap-x-2">
+                  <input
+                    class="w-[35px] h-[35px] md:w-[55px] md:h-[55px] border-[1px] border-[#989898] rounded-[12px] bg-[#F3EFEF] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    required
+                  />
+                  <input
+                    class="w-[35px] h-[35px] md:w-[55px] md:h-[55px] border-[1px] border-[#989898] rounded-[12px] bg-[#F3EFEF] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    required
+                  />
+                  <input
+                    class="w-[35px] h-[35px] md:w-[55px] md:h-[55px] border-[1px] border-[#989898] rounded-[12px] bg-[#F3EFEF] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    required
+                  />
+                  <input
+                    class="w-[35px] h-[35px] md:w-[55px] md:h-[55px] border-[1px] border-[#989898] rounded-[12px] bg-[#F3EFEF] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    required
+                  />
+                  <input
+                    class="w-[35px] h-[35px] md:w-[55px] md:h-[55px] border-[1px] border-[#989898] rounded-[12px] bg-[#F3EFEF] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    required
+                  />
+                  <input
+                    class="w-[35px] h-[35px] md:w-[55px] md:h-[55px] border-[1px] border-[#989898] rounded-[12px] bg-[#F3EFEF] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    type="number"
+                    required
+                  />
+                </div>
+
+                <div class="bg-[#dc375d] my-5 py-2 md:py-3 rounded-[12px]">
+                  <h3
+                    class="font-Roboto font-bold text-sm sm:text-base md:text-lg text-[#FFFFFF] text-center"
+                  >
+                    Submit
+                  </h3>
+                </div>
+                <!--        resend otp options  -->
+                <div class="text-center font-SulphurPoint font-bold">
+                  <p class="text-base sm:text-lg md:text-xl text-[#dc375d]">
+                    Resend OTP
+                  </p>
+                </div>
+
+                <!-- or options -->
+                <div class="my-3 flex items-center justify-center">
+                  <div class="w-full relative">
+                    <div
+                      class="absolute w-full top-[50%] border-[1px] border-[#00000040]"
+                    ></div>
+                  </div>
+                  <p
+                    class="font-inter font-medium text-[13px] text-[#989898] mx-2"
+                  >
+                    or
+                  </p>
+                  <div class="w-full relative">
+                    <div
+                      class="absolute w-full top-[50%] border-[1px] border-[#00000040]"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- {/* social icons */} -->
+                <div class="flex items-center justify-center gap-6 my-3">
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/Facebook.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/Google.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/LinkedIn.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <!-- {/* don't have an account sign up here */} -->
+                <div class="pt-3">
+                  <h5 class="text-sm sm:text-lg lg:text-[22px] text-center">
+                    <span class="font-SulphurPoint font-bold text-[#00000052]"
+                      >Don’t have an account?
+                    </span>
+                    <a
+                      href="SignupPage.html"
+                      class="font-Inter font-medium text-[#A21D3C]"
+                    >
+                      Sign Up.
+                    </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const otps = ["", "", "", "", "", ""];
+        const otpContainer = document.getElementById("otpContainer");
+
+        const handleInputChange = (index, value) => {
+          const numericValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+          otps[index] = numericValue.slice(0, 1); // Allow only the first numeric character
+
+          if (numericValue !== "" && index < otps.length - 1) {
+            otpBoxes[index + 1].focus();
+          }
+        };
+
+        const handleKeyDown = (index, event) => {
+          if (event.key === "Backspace") {
+            // Handle backspace to delete numbers one by one
+            otps[index] = "";
+            if (index > 0) {
+              otpBoxes[index - 1].focus();
+            }
+          }
+        };
+
+        // Add OTP input boxes to the DOM
+        const otpBoxes = [];
+        for (let i = 0; i < otps.length; i++) {
+          const input = document.createElement("input");
+          input.type = "text";
+          input.maxLength = 1;
+          input.addEventListener("input", (e) =>
+            handleInputChange(i, e.target.value)
+          );
+          input.addEventListener("keydown", (e) => handleKeyDown(i, e));
+          input.classList.add(
+            "w-[35px]",
+            "h-[35px]",
+            "md:w-[55px]",
+            "md:h-[55px]",
+            "border-[1px]",
+            "text-center",
+            "border-[#989898]",
+            "rounded-[12px]",
+            "bg-[#F3EFEF]",
+            "[appearance:textfield]",
+            "[&::-webkit-outer-spin-button]:appearance-none",
+            "[&::-webkit-inner-spin-button]:appearance-none",
+            "text-sm",
+            "md:text-xl",
+            "font-Inter",
+            "font-bold"
+          );
+
+          otpBoxes.push(input);
+          otpContainer.appendChild(input);
+        }
+
+        // Optionally, you can display the converted OTP string
+        const displayConvertedOTP = document.createElement("p");
+        document.body.appendChild(displayConvertedOTP);
+
+        // Function to update the display of the converted OTP string
+        const updateConvertedOTP = () => {
+          const otpString = otps.join("");
+        };
+
+        // Call the function whenever the OTP array changes
+        otpBoxes.forEach((input, index) => {
+          Object.defineProperty(otps, index, {
+            set: function (value) {
+              updateConvertedOTP();
+              input.value = value;
+            },
+          });
+        });
+
+        // Optionally, you can focus on the first input box initially
+        otpBoxes[0].focus();
+      });
+    </script>
+  </body>
+</html>

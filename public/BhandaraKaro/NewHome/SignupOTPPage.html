@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <title>BhandaraKaro</title>
+  </head>
+  <body>
+    <div
+      class="w-full min-h-screen SignupOTPBackgroundImage bg-no-repeat bg-cover bg-center flex md:block flex-col"
+    >
+      <div class="md:hidden">
+        <img src="./public/img/signup1.webp" class="w-full h-full" alt="" />
+      </div>
+
+      <div class="grow relative md:static">
+        <!-- content -->
+        <div
+          class="min-h-full md:w-fits bg-[#F3EFEF] absolute md:w-[29rem] top-[-12%] left-0 w-full md:left-1/2 md:top-[55%] md:-translate-x-1/2 md:-translate-y-1/2 lg:left-[10%] lg:translate-x-0 bottom-0 md:min-h-0 md:h-fit rounded-t-[3.6rem] md:rounded-[24px] animate-left-box"
+          style="background-color: hsla(0, 0%, 100%, 0.7);"
+        >
+          <div
+            class="min-h-full pt-[4rem] md:pt-[5rem] pb-[2rem] relative md:px-[3rem] bg-[#F3EFEF] rounded-t-[3.6rem] md:rounded-[24px]"
+          >
+            <a href="./index.html"
+              ><img
+                class="w-[220px] md:w-[260px] h-[100px]s rounded-[30px] absolute top-[-21%] md:top-[-22%] left-1/2 translate-y-1/2 -translate-x-1/2"
+                src="../images/376x156.png"
+                alt="logoImage"
+                style="background-color: hsla(0, 0%, 100%, 0.7);"
+            /></a>
+
+            <!-- {/* content is here */} -->
+            <div class="h-full w-[83%] md:w-[100%] mx-auto">
+              <div class="font-SulphurPoint text-center mb-[1.3rem]">
+                <h3
+                  class="font-bold text-[28px] md:text-3xl lg:text-4xl text-[#2D2D2D]"
+                >
+                  One Time Password
+                </h3>
+                <p class="font-normal text-base lg:text-lg text-[#989898]">
+                  Enter the OTP sent to your mobile number
+                </p>
+              </div>
+
+              <div>
+                <div
+                  class="flex justify-center gap-x-2 mt-[3rem] md:mt-[5rem] mb-[1.3rem]"
+                  id="otpContainer"
+                >
+                  <!-- OTP input boxes will be dynamically added here -->
+                </div>
+
+                <!-- get OTP box -->
+                <div
+                  class="bg-[#dc375d] py-3 md:py-[14px] rounded-[12px] shadow-GetOTPBtn cursor-pointer"
+                >
+                  <h3
+                    class="font-Roboto font-bold text-base md:text-lg text-[#FFFFFF] text-center"
+                  >
+                    Submit
+                  </h3>
+                </div>
+
+                <!-- resend OTP box  -->
+                <div
+                  class="pt-3 font-SulphurPoint font-bold text-center cursor-pointer"
+                >
+                  <p class="text-base md:text-xl lg:text-2xl text-[#dc375d]">
+                    Resend OTP
+                  </p>
+                </div>
+
+                <!-- or options -->
+                <div class="my-[1.2rem] flex items-center justify-center">
+                  <div class="w-full relative">
+                    <div
+                      class="absolute w-full top-[50%] border-[1px] border-[#00000040]"
+                    ></div>
+                  </div>
+                  <p
+                    class="font-inter font-medium text-[13px] text-[#989898] mx-2"
+                  >
+                    or
+                  </p>
+                  <div class="w-full relative">
+                    <div
+                      class="absolute w-full top-[50%] border-[1px] border-[#00000040]"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- {/* social icons */} -->
+                <div class="flex items-center justify-center gap-6 my-3">
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/Facebook.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/Google.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/LinkedIn.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <!-- don't have an account sign up here -->
+                <div class="">
+                  <h5
+                    class="text-sm xs:text-[15px] sm:text-lg lg:text-[22px] text-center"
+                  >
+                    <span class="font-SulphurPoint font-bold text-[#989898]"
+                      >Already Have an Account?
+                    </span>
+                    <a
+                      href="./LoginPage.html"
+                      class="font-Inter font-medium text-[#dc375d]"
+                    >
+                      Log In.
+                    </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const otps = ["", "", "", "", "", ""];
+        const otpContainer = document.getElementById("otpContainer");
+
+        const handleInputChange = (index, value) => {
+          const numericValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+          otps[index] = numericValue.slice(0, 1); // Allow only the first numeric character
+
+          if (numericValue !== "" && index < otps.length - 1) {
+            otpBoxes[index + 1].focus();
+          }
+        };
+
+        const handleKeyDown = (index, event) => {
+          if (event.key === "Backspace") {
+            // Handle backspace to delete numbers one by one
+            otps[index] = "";
+            if (index > 0) {
+              otpBoxes[index - 1].focus();
+            }
+          }
+        };
+
+        // Add OTP input boxes to the DOM
+        const otpBoxes = [];
+        for (let i = 0; i < otps.length; i++) {
+          const input = document.createElement("input");
+          input.type = "text";
+          input.maxLength = 1;
+          input.addEventListener("input", (e) =>
+            handleInputChange(i, e.target.value)
+          );
+          input.addEventListener("keydown", (e) => handleKeyDown(i, e));
+          input.classList.add(
+            "w-[35px]",
+            "h-[35px]",
+            "md:w-[55px]",
+            "md:h-[55px]",
+            "border-[1px]",
+            "text-center",
+            "border-[#989898]",
+            "rounded-[12px]",
+            "bg-[#F3EFEF]",
+            "[appearance:textfield]",
+            "[&::-webkit-outer-spin-button]:appearance-none",
+            "[&::-webkit-inner-spin-button]:appearance-none",
+            "text-sm",
+            "md:text-xl",
+            "font-Inter",
+            "font-bold"
+          );
+
+          otpBoxes.push(input);
+          otpContainer.appendChild(input);
+        }
+
+        // Optionally, you can display the converted OTP string
+        const displayConvertedOTP = document.createElement("p");
+        document.body.appendChild(displayConvertedOTP);
+
+        // Function to update the display of the converted OTP string
+        const updateConvertedOTP = () => {
+          const otpString = otps.join("");
+        };
+
+        // Call the function whenever the OTP array changes
+        otpBoxes.forEach((input, index) => {
+          Object.defineProperty(otps, index, {
+            set: function (value) {
+              updateConvertedOTP();
+              input.value = value;
+            },
+          });
+        });
+
+        // Optionally, you can focus on the first input box initially
+        otpBoxes[0].focus();
+      });
+    </script>
+  </body>
+</html>

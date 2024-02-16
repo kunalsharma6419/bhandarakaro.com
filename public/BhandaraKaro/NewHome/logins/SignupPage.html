@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
+    <title>Signup</title>
+  </head>
+  <body>
+    <div
+      class="w-full h-screen SignupBackgroundImage bg-no-repeat bg-cover bg-left md:bg-center relative flex sm:block flex-col"
+    >
+      <div class="sm:hidden h-[45%]s border border-red-900">
+        <img src="./public/img/signup1.webp" class="w-full h-full" alt="" />
+      </div>
+
+      <div class="grow relative sm:static">
+        <!-- content -->
+        <div
+          class="min-h-full sm:w-[410px] md:w-[420px] min-h-[440px]s h-fit bg-[#F3EFEF] absolute right-0 w-full sm:right-1/2 sm:top-[55%] sm:translate-x-1/2 sm:-translate-y-1/2 lg:left-[10%] lg:translate-x-0 bottom-0 sm:min-h-0 rounded-t-[3rem] sm:rounded-[24px] animate-left-box bg-red-200"
+          style="background-color: hsla(0, 0%, 100%, 0.7);"
+        >
+          <a href="./index.html"
+            ><img
+              class="w-[220px] md:w-[260px] h-[100px]s rounded-[30px] absolute top-[-21%] md:top-[-22%] left-1/2 translate-y-1/2 -translate-x-1/2"
+              src="../images/376x156.png"
+              alt="logoImage"
+              style="background-color: hsla(0, 0%, 100%, 0.7);"
+          /></a>
+
+          <!-- {/* content is here */} -->
+          <div
+            class="h-full flex items-end justify-center pt-[3.5rem] sm:pt-[4rem] md:pt-[3rem] rounded-b-[1rem]s"
+          >
+            <!-- text here  -->
+            <div class="w-[80%] mb-[2rem] sm:mb-[1.2rem]s">
+              <div class="font-SulphurPoint text-center my-2 mb-5">
+                <p
+                  class="font-bold text-2xl sm:text-[28px] md:text-3xl text-[#2D2D2D]"
+                >
+                  Sign Up
+                </p>
+                <p
+                  class="font-normal text-[13px] sm:text-sm md:text-base text-[#989898] mt-1"
+                >
+                  Create a new account
+                </p>
+              </div>
+
+              <!-- {/* select your type */} -->
+              <div>
+                <!-- {/* toggle button */} -->
+
+                <!-- class={`toggle-container ${isChecked ? 'checked' : ''}`} -->
+                <div class="flex justify-between my-2">
+                  <h4
+                    class="font-SulphurPoint font-bold text-lg sm:text-xl md:text-[22px] text-[#2D2D2D]"
+                  >
+                    I am an Vendor
+                  </h4>
+
+                  <label class="toggle-container">
+                    <input
+                      type="checkbox"
+                      checked="true"
+                      class="toggle-input"
+                    />
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <!-- user name -->
+                <div
+                  class="border-[1px] my-4 border-[#989898] bg-[#F3EFEF] rounded-[12px] flex items-center px-2 py-2 md:py-3 gap-3"
+                >
+                  <span>
+                    <CiMobile3 class="w-[24px] h-[24px] text-[#989898]" />
+                  </span>
+                  <input
+                    type="text"
+                    class="font-SulphurPoint font-bold text-base md:text-lg text-[#989898] bg-[#F3EFEF] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    placeholder="Username"
+                  />
+                </div>
+
+                <!-- {/* mobile number */} -->
+                <div
+                  class="border-[1px] my-4 border-[#989898] bg-[#F3EFEF] rounded-[12px] flex items-center px-2 py-2 md:py-3 gap-3"
+                >
+                  <span>
+                    <CiMobile3 class="w-[24px] h-[24px] text-[#989898]" />
+                  </span>
+                  <input
+                    type="number"
+                    class="font-SulphurPoint font-bold text-base md:text-lg text-[#989898] bg-[#F3EFEF] outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    placeholder="Mobile Number"
+                  />
+                </div>
+
+                <!-- {/* get OTP box */} -->
+                <!-- onClick={()=> getotp()}  -->
+                <div
+                  class="bg-[#dc375d] my-5 py-2 md:py-3 rounded-[12px] text-center"
+                >
+                  <a
+                    href="./SignupOTPPage.html"
+                    class="font-Roboto font-bold text-sm sm:text-base md:text-lg text-[#FFFFFF] text-center"
+                    >Get OTP</a
+                  >
+                </div>
+
+                <!-- or options -->
+                <div class="my-3 flex items-center justify-center">
+                  <div class="w-full relative">
+                    <div
+                      class="absolute w-full top-[50%] border-[1px] border-[#00000040]"
+                    ></div>
+                  </div>
+                  <p
+                    class="font-inter font-medium text-[13px] text-[#989898] mx-2"
+                  >
+                    or
+                  </p>
+                  <div class="w-full relative">
+                    <div
+                      class="absolute w-full top-[50%] border-[1px] border-[#00000040]"
+                    ></div>
+                  </div>
+                </div>
+
+                <!-- {/* social icons */} -->
+                <div class="flex items-center justify-center gap-6 my-3">
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/Facebook.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/Google.png"
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <img
+                      class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
+                      src="./public/img/LinkedIn.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                <!-- {/* don't have an account sign up here */} -->
+                <div class="pt-3">
+                  <h5 class="text-sm sm:text-lg lg:text-[22px] text-center">
+                    <span class="font-SulphurPoint font-bold text-[#00000052]"
+                      >Already have an account?
+                    </span>
+                    <a
+                      href="./LoginPage.html"
+                      class="font-Inter font-medium text-[#A21D3C]"
+                    >
+                      Login.
+                    </a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
