@@ -19,7 +19,43 @@ use Illuminate\Support\Facades\Validator;
 class FoodProductController extends Controller
 {
 
-   public function foodProductAll()
+//    public function foodProductAll()
+// {
+//     try {
+//         $foodProducts = DB::table('food_products')
+//             ->select('food_products.*', 'food_products.id as food_id', 'categories.*', 'categories.id as category_id')
+//             ->join('categories', 'categories.id', '=', 'food_products.category_id')
+//             ->get();
+
+//         if ($foodProducts->isNotEmpty()) {
+//             $foodProductsWithImageUrls = $foodProducts->map(function ($foodProduct) {
+//                 return [
+
+//                     'food_image_url' => $foodProduct->image
+//                         ? env('APP_URL') . '/foodproductImage/' . $foodProduct->image
+//                         : null,
+//                     'data'=>$foodProduct,
+//                 ];
+//             });
+
+//             return response([
+//                 'data' => $foodProductsWithImageUrls,
+//                 'status' => 200,
+//             ]);
+//         } else {
+//             return response([
+//                 'status' => 'No data found',
+//             ]);
+//         }
+//     } catch (\Exception $e) {
+//         return response([
+//             'status' => 'error',
+//             'message' => $e->getMessage(),
+//         ], 500); // 500 is the HTTP status code for internal server error
+//     }
+// }
+
+public function foodProductAll()
 {
     try {
         $foodProducts = DB::table('food_products')
@@ -31,40 +67,19 @@ class FoodProductController extends Controller
             $foodProductsWithImageUrls = $foodProducts->map(function ($foodProduct) {
                 $imageUrls = [];
 
-                if ($foodProduct->image) {
-                    $imageArray = json_decode($foodProduct->image, true);
+                // Check if the 'images' column is not empty
+                if (!empty($foodProduct->images)) {
+                    $images = json_decode($foodProduct->images, true);
 
-                    foreach ($imageArray as $index => $filename) {
-                        $imageUrls[$index + 1] = env('APP_URL') . '/foodproductImage/' . $filename;
+                    // Generate URLs for each image
+                    foreach ($images as $image) {
+                        $imageUrls[] = env('APP_URL') . '/foodproductImage/' . $image;
                     }
                 }
 
-                $decodedTags = json_decode($foodProduct->tags, true);
-                $decodedIngredient = json_decode($foodProduct->ingredient, true);
-
-                // Remove \r, \n, and \ from the ingredient string
-                $cleanedIngredient = str_replace(["\r", "\n", "\\"], '', $foodProduct->ingredient);
-
                 return [
-                    'food_image_url' => $imageUrls,
-                    'data' => [
-                        'id' => $foodProduct->food_id,
-                        'name' => $foodProduct->name,
-                        'price' => $foodProduct->price,
-                        'image' => $foodProduct->image,
-                        'description' => $foodProduct->description,
-                        'category_id' => $foodProduct->category_id,
-                        'ingredient' => $cleanedIngredient,
-                        'tags' => $decodedTags,
-                        'is_deal' => $foodProduct->is_deal,
-                        'offer_id' => $foodProduct->offer_id,
-                        'deleted_at' => $foodProduct->deleted_at,
-                        'created_at' => $foodProduct->created_at,
-                        'updated_at' => $foodProduct->updated_at,
-                        'food_id' => $foodProduct->food_id,
-                        'category_name' => $foodProduct->category_name,
-                        'category_image' => $foodProduct->category_image,
-                    ],
+                    'food_image_urls' => $imageUrls,
+                    'data' => $foodProduct,
                 ];
             });
 
@@ -84,8 +99,6 @@ class FoodProductController extends Controller
         ], 500);
     }
 }
-
-
 
 
  public function foodProductShow(Request $request)
@@ -128,87 +141,73 @@ class FoodProductController extends Controller
 }
 
 
- public function cartAdd(Request $request)
-{
-    $food = FoodProduct::find($request->id);
-    $cart = json_decode(request()->cookie('cart'), true);
-    if (!$cart) {
-        $cart = [
-            'stores' => [
-                $food->id => [
-                    'name' => $food->name,
-                    'image' => $food->image,
-                    'quantity' => $request->quantity,
-                    'price' => $food->price,
-                    'total_price' => $food->price * $request->quantity,
-                ],
-            ],
-            'total_price' => $food->price * $request->quantity,
-        ];
-    } else {
-        if (isset($cart['stores'][$food->id])) {
-            $cart['stores'][$food->id]['quantity'] += $request->quantity;
-            $cart['stores'][$food->id]['total_price'] += $food->price * $request->quantity;
-            $cart['total_price']+=$food->price * $request->quantity;
-        } else {
-            $cart['stores'][$food->id] = [
-            'name' => $food->name,
-            'image' => $food->image,
-            'quantity' => $request->quantity,
-            'price' => $food->price,
-            'total_price' => $food->price * $request->quantity,
-        ];
-        $cart['total_price'] += $food->price * $request->quantity;
+//  public function cartAdd(Request $request)
+// {
+//     $food = FoodProduct::find($request->id);
+//     $cart = json_decode(request()->cookie('cart'), true);
+//     if (!$cart) {
+//         $cart = [
+//             'stores' => [
+//                 $food->id => [
+//                     'name' => $food->name,
+//                     'image' => $food->image,
+//                     'quantity' => $request->quantity,
+//                     'price' => $food->price,
+//                     'total_price' => $food->price * $request->quantity,
+//                 ],
+//             ],
+//             'total_price' => $food->price * $request->quantity,
+//         ];
+//     } else {
+//         if (isset($cart['stores'][$food->id])) {
+//             $cart['stores'][$food->id]['quantity'] += $request->quantity;
+//             $cart['stores'][$food->id]['total_price'] += $food->price * $request->quantity;
+//             $cart['total_price']+=$food->price * $request->quantity;
+//         } else {
+//             $cart['stores'][$food->id] = [
+//             'name' => $food->name,
+//             'image' => $food->image,
+//             'quantity' => $request->quantity,
+//             'price' => $food->price,
+//             'total_price' => $food->price * $request->quantity,
+//         ];
+//         $cart['total_price'] += $food->price * $request->quantity;
 
-        }
+//         }
 
-        // Update total_price for the cart
-        $cart['total_price'] = 0;
-        foreach ($cart['stores'] as $item) {
+//         // Update total_price for the cart
+//         $cart['total_price'] = 0;
+//         foreach ($cart['stores'] as $item) {
 
-            $cart['total_price'] += $item['total_price'];
-        }
-    }
+//             $cart['total_price'] += $item['total_price'];
+//         }
+//     }
 
-    return response([
-        'data' => $cart,
-        'success' => 200,
-        'total_price' => $cart['total_price'],
-    ])->cookie('cart', json_encode($cart));
-}
+//     return response([
+//         'data' => $cart,
+//         'success' => 200,
+//         'total_price' => $cart['total_price'],
+//     ])->cookie('cart', json_encode($cart));
+// }
 
-public function cartRemove(Request $request)
-{
-    $cart = json_decode(request()->cookie('cart'), true);
+// public function cartRemove(Request $request)
+// {
+//     $cart = json_decode(request()->cookie('cart'), true);
 
-    if ($cart && isset($cart['stores'][$request->id])) {
-        $removedItem = $cart['stores'][$request->id];
-        unset($cart['stores'][$request->id]);
-        unset($cart['total_price']);
-    }
+//     if ($cart && isset($cart['stores'][$request->id])) {
+//         $removedItem = $cart['stores'][$request->id];
+//         unset($cart['stores'][$request->id]);
+//         unset($cart['total_price']);
+//     }
 
-    return response([
-        'data' => $cart,
-        'success' => 200,
-    ])->cookie('cart', json_encode($cart));
-}
+//     return response([
+//         'data' => $cart,
+//         'success' => 200,
+//     ])->cookie('cart', json_encode($cart));
+// }
 
-public function cartShowAll()
-{
-     $cart = json_decode(request()->cookie('cart'), true);
-        if ($cart && !empty($cart)) {
-            return response([
-                'data' => $cart,
-                'status' => 200,
-            ]);
-        } else {
-            return response([
-                'message' => 'No cart found',
-                'status' => 404,
-            ]);
-        }
+//
 
-}
 
 public function starReview(Request $request)
 {

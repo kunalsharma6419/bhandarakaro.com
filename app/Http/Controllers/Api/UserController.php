@@ -15,7 +15,7 @@ use DB;
 class UserController extends Controller
 {
     public function location(Request $request)
-{
+{   
     $data = Validator::make($request->all(), [
         'l_pincode' => ['required', 'numeric'],
     ], [
@@ -42,7 +42,7 @@ class UserController extends Controller
                 return response([
                     'status' => 200,
                     'location' => [
-
+                        
                         'image_url' => $image_url,
                     'data'=>$location,
                 ],
@@ -73,11 +73,11 @@ class UserController extends Controller
         if (count($temples) > 0) {
             $templesWithImageUrls = $temples->map(function ($temple) {
                 return [
-
+                   
                     'image' => $temple->location_image
                         ? env('APP_URL') . '/locationImage/' . $temple->location_image
                         : null,
-
+                    
                     'data'=>$temple,
                 ];
             });
@@ -90,32 +90,6 @@ class UserController extends Controller
             return response([
                 'status' => 200,
                 'message' => 'Data not found!!',
-            ]);
-        }
-    }
-
-    public function homelocation()
-    {
-        $locations = Location::all();
-        if (count($locations) > 0) {
-            $locationsWithImageUrls = $locations->map(function ($location) {
-                return [
-
-                    'image' => $location->image
-                        ? env('APP_URL') . '/locationImage/' . $location->image
-                        : null,
-
-                    'data'=>$location,
-                ];
-            });
-            return response([
-                'status' => 200,
-                'homelocations' => $locationsWithImageUrls,
-            ]);
-        } else {
-            return response([
-                'status' => 200,
-                'message' => 'Bhandara Serving Location Not found!!',
             ]);
         }
     }
@@ -148,7 +122,7 @@ class UserController extends Controller
     }
 
     public function faq(Request $request)
-    {
+    {   
         $faq=Faq::get();
         if(count($faq)>0){
             return response([
@@ -162,11 +136,11 @@ class UserController extends Controller
         }
     }
 
-
+    
     public function myProfileUpdat(Request $request)
-    {
+    { 
         $update_profile=User::where('id',$request->id)->update(['name'=>$request->name,'email'=>$request->email,'phone_number'=>$request->phone_number]);
-
+        
         if($update_profile){
             return response([
                 'messege'=>'My profile updated successfulyy!!!!',
