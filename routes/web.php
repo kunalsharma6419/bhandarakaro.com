@@ -114,9 +114,10 @@ Route::prefix('user')->group(function () {
             return view('mobile.auth.verify');
         })->name('user.verify');
 
-        Route::get('/', function () {
-            return view('user.pages.home');
-        })->name('user.home');
+        // Route::get('/', function () {
+        //     return view('user.pages.home');
+        // })->name('user.home');
+        Route::get('/', [HomeController::class, 'userhome'])->name('user.home');
 
         Route::post('/register/create', [AuthController::class, 'create'])->name('user.register.create');
         Route::post('/register/verify/otp', [AuthController::class, 'verify'])->name('user.verify.otp');

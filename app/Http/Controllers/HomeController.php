@@ -226,4 +226,27 @@ class HomeController extends Controller
         $locations = Location::all();
         return view('user.pages.terms', compact('locations'));
     }
+
+    public function userhome()
+    {
+        $locations = Location::take(7)->get();
+        $categories = Category::all();
+        $offers = Offer::latest()->get();
+        $foodproducts = FoodProduct::with('category', 'offer')
+            ->whereRaw('MOD(id, 2) = 1')
+            ->take(8)
+            ->get();
+        $flashdeals = FlashDeal::with('foodProduct', 'foodProduct.offer')
+            ->take(4)
+            ->get();
+        $trendingfoods = FoodProduct::with('category', 'offer')
+            ->whereRaw('MOD(id, 2) = 0')
+            ->take(6)
+            ->get();
+        $templeWithMaxReviews = TemplesData::orderBy('no_of_reviews', 'desc')
+        ->whereRaw('MOD(id, 2) = 0')
+                ->take(8)
+                ->get();
+        return view('user.pages.home', compact('locations', 'categories', 'offers', 'foodproducts', 'flashdeals', 'trendingfoods', 'templeWithMaxReviews'));
+    }
 }

@@ -75,7 +75,7 @@ class AuthController extends Controller
                     /* Authenticate user */
                     Auth::login($user);
 
-                    return redirect()->route('user.home')->with(['message' => 'Phone number verified']);
+                    return redirect()->route('redirect')->with(['message' => 'Phone number verified']);
                 }
             }
 
