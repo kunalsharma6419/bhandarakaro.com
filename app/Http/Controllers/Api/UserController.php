@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use App\Models\TemplesData;
+use App\Models\LocationPincode;
 
 class UserController extends Controller
 {
@@ -127,7 +128,7 @@ class UserController extends Controller
 
     public function temples()
     {
-        $temples = TemplesData::all();
+        $temples = TemplesData::paginate(10);
         if (count($temples) > 0) {
             return response([
                 'status' => 200,
@@ -137,6 +138,23 @@ class UserController extends Controller
             return response([
                 'status' => 200,
                 'message' => 'Bhandara Temples Not found!!',
+            ]);
+        }
+
+    }
+
+    public function locations()
+    {
+        $locations = LocationPincode::paginate(10);
+        if (count($locations) > 0) {
+            return response([
+                'status' => 200,
+                'locations' => $locations,
+            ]);
+        } else {
+            return response([
+                'status' => 200,
+                'message' => 'Bhandara locations Not found!!',
             ]);
         }
 
