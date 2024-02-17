@@ -11,6 +11,7 @@ use App\Models\Faq;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use App\Models\TemplesData;
 
 class UserController extends Controller
 {
@@ -122,6 +123,23 @@ class UserController extends Controller
                 'message' => 'Bhandara Serving Location Not found!!',
             ]);
         }
+    }
+
+    public function temples()
+    {
+        $temples = TemplesData::all();
+        if (count($temples) > 0) {
+            return response([
+                'status' => 200,
+                'homelocations' => $temples,
+            ]);
+        } else {
+            return response([
+                'status' => 200,
+                'message' => 'Bhandara Temples Not found!!',
+            ]);
+        }
+
     }
 
 

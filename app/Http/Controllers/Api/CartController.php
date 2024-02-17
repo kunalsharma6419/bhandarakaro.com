@@ -116,41 +116,49 @@ class CartController extends Controller
     }
 
     protected function cartShowAll()
-{
-    $data = Cart::with('products')->where('user_id', Auth::user()->id)->get();
-    if ($data->isNotEmpty()) {
-        $foodProductsWithImageUrls = $data->map(function ($foodProduct) {
-            $imageUrls = [];
-            $product_qty=$foodProduct->products->price*$foodProduct->prod_qty;
-            if (!empty($foodProduct->products->image)) {
-                $images = json_decode($foodProduct->products->image, true);
-                foreach ($images as $image) {
-                    $imageUrls[] = env('APP_URL') . '/foodproductImage/' . $image;
+    {
+        $data = Cart::with('products')->where('user_id', Auth::user()->id)->get();
+
+        if ($data->isNotEmpty()) {
+            $foodProductsWithImageUrls = $data->map(function ($foodProduct) {
+                $imageUrls = [];
+                $product_qty = $foodProduct->products->price * $foodProduct->prod_qty;
+
+                if ($foodProduct->products->image) {
+                    // Check if there are any images
+                    if (!empty($foodProduct->products->image)) {
+                        // Get the first image URL
+                        $firstImageUrl = env('APP_URL') . '/foodproductImage/' . $foodProduct->products->image[0];
+
+                        // Assign the first image URL directly to 'food_image_url'
+                        $imageUrls['food_image_url'] = $firstImageUrl;
+                    }
                 }
-            }
-            return [
-                'food_image_urls' => $imageUrls,
-                'data' => $foodProduct,
-                'all_qty_price'=>$product_qty,
+
+                return [
+                    'food_image_urls' => $imageUrls,
+                    'data' => $foodProduct,
+                    'all_qty_price' => $product_qty,
+                    'status' => 200,
+                ];
+            });
+
+            $cartTotalPrice = $data->reduce(function ($carry, $item) {
+                return $carry + ($item->products->price * $item->prod_qty);
+            }, 0);
+
+            return response([
+                'data' => $foodProductsWithImageUrls,
+                'total_price' => $cartTotalPrice,
                 'status' => 200,
-            ];
-        });
-
-        $cartTotalPrice = $data->reduce(function ($carry, $item) {
-            return $carry + ($item->products->price * $item->prod_qty);
-        }, 0);
-
-        return response([
-            'data' => $foodProductsWithImageUrls,
-            'total_price' => $cartTotalPrice,
-            'status' => 200,
-        ]);
-    } else {
-        return response()->json([
-            'message' => "No cart!",
-            'status' => 200
-        ]);
+            ]);
+        } else {
+            return response()->json([
+                'message' => "No cart!",
+                'status' => 200
+            ]);
+        }
     }
-}
+
 
 }

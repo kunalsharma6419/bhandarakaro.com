@@ -58,7 +58,7 @@ use App\Http\Controllers\Api\CartController;
 
 
 
-    Route::post('/temples',[UserController::class,'templeShow'])->name('temples');
+    Route::get('/temples',[UserController::class,'temples'])->name('temples');
     Route::post('/location',[UserController::class,'location'])->name('location');
     Route::get('/homelocation', [UserController::class, 'homelocation'])->name('homelocation');
     Route::post('/category',[CategoryController::class,'category'])->name('category');
