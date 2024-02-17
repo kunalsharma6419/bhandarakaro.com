@@ -8,17 +8,18 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">Dashboard</div>
-                                <div class="card-body">
-                                    @if (session('message'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('message') }}
-                                        </div>
-                                    @endif
-                                    You are logged in!
-                                </div>
-                            </div>
+                            @if (session('message'))
+
+                                <script>
+                                    // Display SweetAlert when a user logs in
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Logged In!',
+                                        html: '<div class="card"><div class="card-header">Dashboard</div><div class="card-body">You are logged in as {{ Auth::user()->name }}</div></div>',
+                                        confirmButtonText: 'OK'
+                                    });
+                                </script>
+                            @endif
                         </div>
                     </div>
                 </div>

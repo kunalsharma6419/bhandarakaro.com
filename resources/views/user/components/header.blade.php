@@ -59,10 +59,10 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="{{ url('/redirect') }}">Dashboard</a>
                                         <a class="dropdown-item" href="{{ url('/user/profile') }}">My account</a>
-                                        <a class="dropdown-item" href="#">Delivery support</a>
+                                        {{-- <a class="dropdown-item" href="#">Delivery support</a>
                                         <a class="dropdown-item" href="#">Contant us</a>
                                         <a class="dropdown-item" href="#">Term of use</a>
-                                        <a class="dropdown-item" href="#">Privacy policy</a>
+                                        <a class="dropdown-item" href="#">Privacy policy</a> --}}
 
                                         <div></div>
                                     </div>

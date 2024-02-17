@@ -29,7 +29,7 @@
                         <div>
                             <!-- toggle button -->
 
-                            <div class="flex justify-between mb-[1rem]">
+                            {{-- <div class="flex justify-between mb-[1rem]">
                                 <h4 class="font-SulphurPoint font-bold text-xl md:text-[22px] lg:text-2xl text-[#2D2D2D]">
                                     I am an Vendor
                                 </h4>
@@ -38,7 +38,7 @@
                                     <input type="checkbox" checked="true" class="toggle-input" />
                                     <span class="toggle-slider"></span>
                                 </label>
-                            </div>
+                            </div> --}}
 
                             <form method="POST" action="{{ route('user.login.sendotp') }}">
                                 @csrf
@@ -83,7 +83,7 @@
                             </div>
 
                             <!-- {/* social icons */} -->
-                            <div class="flex items-center justify-center gap-6 my-3">
+                            {{-- <div class="flex items-center justify-center gap-6 my-3">
                                 <div>
                                     <img class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
                                         src="{{ asset('BhandaraKaro/NewHome/public/img/Facebook.png') }}" alt="" />
@@ -96,7 +96,7 @@
                                     <img class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
                                         src="{{ asset('BhandaraKaro/NewHome/public/img/LinkedIn.png') }}" alt="" />
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- don't have an account sign up here -->
                             <div class="">

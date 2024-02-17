@@ -20,28 +20,33 @@
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
+                    @if (session('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     <a href="profile.html" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
-                                <img alt="#" src="{{ asset('BhandaraKaro/NewHome/img/user1.jpg') }}"
-                                    class="rounded-circle">
+                                {{-- <img alt="#" src="{{ asset('BhandaraKaro/NewHome/img/user1.jpg') }}"
+                                    class="rounded-circle"> --}}
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
+                                <h6 class="mb-1 font-weight-bold">{{ $user->name }} <i
                                         class="feather-check-circle text-success"></i></h6>
                                 <p class="text-muted m-0 small"><span class="__cf_email__"
-                                        data-cfemail="6d040c00021e0c050c032d0a000c0401430e0200">[email&#160;protected]</span>
+                                        data-cfemail="6d040c00021e0c050c032d0a000c0401430e0200">{{ $user->email }}</span>
                                 </p>
                             </div>
                         </div>
                     </a>
-                    <div class="osahan-credits d-flex align-items-center p-3 bg-light">
+                    {{-- <div class="osahan-credits d-flex align-items-center p-3 bg-light">
                         <p class="m-0">Accounts Credits</p>
                         <h5 class="m-0 ml-auto text-primary">$52.25</h5>
-                    </div>
+                    </div> --}}
 
                     <div class="bg-white profile-details">
-                        <a data-toggle="modal" data-target="#paycard"
+                        {{-- <a data-toggle="modal" data-target="#paycard"
                             class="d-flex w-100 align-items-center border-bottom p-3">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold mb-1 text-dark">Payment Cards</h6>
@@ -70,7 +75,7 @@
                             <div class="right ml-auto">
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
-                        </a>
+                        </a> --}}
                         <a href="faq.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold m-0 text-dark"><i
@@ -120,46 +125,50 @@
                     <h5 class="mb-4">My account</h5>
                     <div id="edit_profile">
                         <div>
-                            <form action="https://askbootstrap.com/preview/swiggiweb/my_account.html">
-                                <div class="form-group">
-                                    <label for="exampleInputName1">First Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
+                            <form method="post" action="{{ route('user.update-profile') }}">
+                                @csrf
+                                @method('put')
+
+                                <div class="form-group mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        value="{{ old('name', Auth::user()->name) }}">
                                 </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Last Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" value="Singh">
+
+                                <div class="form-group mb-3">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="{{ old('email', Auth::user()->email) }}">
                                 </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="exampleInputNumber1">Mobile Number</label>
-                                    <input type="number" class="form-control" id="exampleInputNumber1"
-                                        value="1234567890">
+
+                                <div class="form-group mb-3">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="text" class="form-control" id="phone_number" name="phone_number"
+                                        value="{{ old('phone_number', Auth::user()->phone_number) }}">
                                 </div>
-                                <br>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                        value="iamosahan@gmail.com">
+
+                                <div class="form-group mb-3">
+                                    <label for="address">Address</label>
+                                    <textarea class="form-control" id="address" name="address">{{ old('address', Auth::user()->address) }}</textarea>
                                 </div>
-                                <br>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
-                                </div>
+
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
                             </form>
                         </div>
-                        <div class="additional">
+                        {{-- <div class="additional">
                             <div class="change_password my-3">
-                                <a href="forgot_password.html"
-                                    class="p-3 border rounded bg-white btn d-flex align-items-center">Change Password
-                                    <i class="feather-arrow-right ml-auto"></i></a>
+                                @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}"
+                                        class="p-3 border rounded bg-white btn d-flex align-items-center">Change Password
+                                        <i class="feather-arrow-right ml-auto"></i></a>
+                                @endif
                             </div>
                             <div class="deactivate_account">
                                 <a href="forgot_password.html"
                                     class="p-3 border rounded bg-white btn d-flex align-items-center">Deactivate Account
                                     <i class="feather-arrow-right ml-auto"></i></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

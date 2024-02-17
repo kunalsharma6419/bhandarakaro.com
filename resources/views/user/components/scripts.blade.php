@@ -11,6 +11,8 @@
 <script src="{{ asset('BhandaraKaro/NewHome/public/main/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js') }}">
 </script>
 <script src="https://static.cloudflareinsights.com/beacon.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 {{-- <script>
     $(document).ready(function() {
         // Assuming you have a radio button with class 'locationRadio' for each location

@@ -174,10 +174,16 @@ class CheckoutController extends Controller
         // Check if payment was successful
         if ($response['order_status'] === 'Success') {
             // Your code for successful payment
-            return redirect('/')->with('status', "Order placed Successfully");
+            return view('user.pages.payment.success', compact('response'));
+        } elseif ($response['order_status'] === 'Failure') {
+            // Payment failed
+            return view('user.pages.payment.failure', compact('response'));
+        } elseif ($response['order_status'] === 'pending') {
+            // Payment is pending
+            return view('user.pages.payment.pending', compact('response'));
         } else {
-            // Your code for unsuccessful payment
-            return redirect('/')->with('error', "Order placement failed. Please try again.");
+            // Something else
+            return view('user.pages.payment.error', compact('response'));
         }
     }
 

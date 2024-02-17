@@ -127,8 +127,10 @@ Route::prefix('user')->group(function () {
         Route::get('/login/verifyotp/{user_phone}', [AuthController::class, 'verification'])->name('user.login.verifyotp');
         Route::post('/login/verifyotp', [AuthController::class, 'verifyOTP'])->name('user.login.verifyotp.submit');
         // Route::post('/login/verifyotp', [AuthController::class, 'verify'])->name('user.login.verifyotp.submit');
-        Route::get('/profile', function () {
-            return view('user.pages.profile');
-        });
+        // Route::get('/profile', function () {
+        //     return view('user.pages.profile');
+        // });
+        Route::get('/profile', [AuthController::class, 'profile']);
+        Route::put('/profile/update', [AuthController::class, 'updateProfile'])->name('user.update-profile');
     });
 

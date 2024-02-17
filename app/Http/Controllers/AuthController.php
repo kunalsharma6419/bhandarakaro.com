@@ -9,6 +9,13 @@ use Twilio\Rest\Client;
 use App\Models\User; // Assuming your User model is located in the App\Models namespace
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Models\Location;
+use App\Models\Category;
+use App\Models\Offer;
+use App\Models\FoodProduct;
+use App\Models\FlashDeal;
+use App\Models\TemplesData;
+use App\Models\LocationPincode;
 
 class AuthController extends Controller
 {
@@ -235,6 +242,50 @@ class AuthController extends Controller
         Auth::user()->tokens()->delete();
 
         return redirect('/');
+    }
+
+    public function profile()
+    {
+        $locations = Location::take(7)->get();
+        $categories = Category::all();
+        $offers = Offer::latest()->get();
+        $foodproducts = FoodProduct::with('category', 'offer')
+            ->whereRaw('MOD(id, 2) = 1')
+            ->take(8)
+            ->get();
+        $flashdeals = FlashDeal::with('foodProduct', 'foodProduct.offer')
+            ->take(4)
+            ->get();
+        $trendingfoods = FoodProduct::with('category', 'offer')
+            ->whereRaw('MOD(id, 2) = 0')
+            ->take(6)
+            ->get();
+        $templeWithMaxReviews = TemplesData::orderBy('no_of_reviews', 'desc')
+        ->whereRaw('MOD(id, 2) = 0')
+                ->take(8)
+                ->get();
+        return view('user.pages.profile', compact('locations', 'categories', 'offers', 'foodproducts', 'flashdeals', 'trendingfoods', 'templeWithMaxReviews'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255|unique:users,email,' . Auth::id(),
+            'phone_number' => 'required|string|max:20|unique:users,phone_number,' . Auth::id(),
+            'address' => 'nullable|string',
+            // Add other validation rules as needed
+        ]);
+
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Update the user profile with the validated data
+        $user->update($request->all());
+
+        // Redirect back with a success message
+        return redirect()->back()->with('message', 'Profile updated successfully!');
     }
 
 }

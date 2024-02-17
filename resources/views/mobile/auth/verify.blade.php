@@ -61,11 +61,11 @@
 
 
                             <!-- resend OTP box  -->
-                            <div class="pt-3 font-SulphurPoint font-bold text-center cursor-pointer">
+                            {{-- <div class="pt-3 font-SulphurPoint font-bold text-center cursor-pointer">
                                 <p class="text-base md:text-xl lg:text-2xl text-[#dc375d]">
                                     Resend OTP
                                 </p>
-                            </div>
+                            </div> --}}
 
                             <!-- or options -->
                             <div class="my-[1.2rem] flex items-center justify-center">
@@ -81,7 +81,7 @@
                             </div>
 
                             <!-- {/* social icons */} -->
-                            <div class="flex items-center justify-center gap-6 my-3">
+                            {{-- <div class="flex items-center justify-center gap-6 my-3">
                                 <div>
                                     <img class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
                                         src="{{ asset('BhandaraKaro/NewHome/public/img/Facebook.png') }}" alt="" />
@@ -94,7 +94,7 @@
                                     <img class="w-[25px] h-[25px] sm:w-[25px] sm:h-[25px] md:w-[40px] md:h-[40px]"
                                         src="{{ asset('BhandaraKaro/NewHome/public/img/LinkedIn.png') }}" alt="" />
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- don't have an account sign up here -->
                             <div class="">
