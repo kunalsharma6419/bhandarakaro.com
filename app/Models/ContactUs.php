@@ -9,5 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ContactUs extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $guarded=[];
+    protected $fillable = [
+        'name',
+        'email',
+        'phone_number',
+        'message',
+    ];
 }

@@ -127,28 +127,28 @@ class UserController extends Controller
 
     public function contactus(Request $request)
     {
-        $data=Validator::make($request->all(),[
-            'name'=>'required',
-            'email'=>'required',
-            'phone_number'=>'required',
-            'message'=>'required',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'message' => 'required',
         ]);
-         if ($data->fails()) {
-            return response()->json(['errors' => $data->errors()], 422);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
         }
-        else{
-            if($request->all()){
-                ContactUs::create($request->all());
-                return response([
-                    'message'=>'contatus added successfully!!',
-                    'status'=>200,
-                ]);
-            }else{
-                return response([
-                    'status'=>'error something',
-                ]);
-            }
-        }
+
+        $contactUs = new ContactUs();
+        $contactUs->name = $request->input('name');
+        $contactUs->email = $request->input('email');
+        $contactUs->phone_number = $request->input('phone_number');
+        $contactUs->message = $request->input('message');
+        $contactUs->save();
+
+        return response()->json([
+            'message' => 'Contact information added successfully!',
+            'status' => 200,
+        ]);
     }
 
     public function faq(Request $request)
