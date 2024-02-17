@@ -370,9 +370,12 @@ public function mostpopularfood()
         foreach ($mostOrderedProduct as $most) {
             $product = FoodProduct::with('category')->find($most->food_id);
 
-            $food_image_url = $product->image
-                ? env('APP_URL') . '/foodproductImage/' . $product->image
-                : null;
+           // Check if $product->image is an array
+            $food_image_url = is_array($product->image)
+                ? env('APP_URL') . '/foodproductImage/' . $product->image[0] // Choose the first element or modify based on your logic
+                : ($product->image
+                    ? env('APP_URL') . '/foodproductImage/' . $product->image
+                    : null);
 
             $category_image_url = $product->category->category_image
                 ? env('APP_URL') . '/categoryImage/' . $product->category->category_image
@@ -421,9 +424,12 @@ public function mostpopularfood()
             foreach ($mostOrderedProduct as $most) {
                 $product = FoodProduct::with('category')->find($most->food_id);
 
-                $food_image_url = $product->image
-                    ? env('APP_URL') . '/foodproductImage/' . $product->image
-                    : null;
+                // Check if $product->image is an array
+                $food_image_url = is_array($product->image)
+                    ? env('APP_URL') . '/foodproductImage/' . $product->image[0] // Choose the first element or modify based on your logic
+                    : ($product->image
+                        ? env('APP_URL') . '/foodproductImage/' . $product->image
+                        : null);
 
                 $category_image_url = $product->category->category_image
                     ? env('APP_URL') . '/categoryImage/' . $product->category->category_image

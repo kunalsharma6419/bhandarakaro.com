@@ -99,15 +99,19 @@ class UserController extends Controller
         $locations = Location::all();
         if (count($locations) > 0) {
             $locationsWithImageUrls = $locations->map(function ($location) {
-                return [
+            $imageUrl = null;
 
-                    'image' => $location->image
-                        ? env('APP_URL') . '/locationImage/' . $location->image
-                        : null,
+            // Check if 'image' property is not null
+            if (!is_null($location->location_image)) {
+                $imageUrl = env('APP_URL') . '/locationImage/' . $location->location_image;
+            }
 
-                    'data'=>$location,
-                ];
-            });
+            return [
+                'image' => $imageUrl,
+                'data' => $location,
+            ];
+        });
+
             return response([
                 'status' => 200,
                 'homelocations' => $locationsWithImageUrls,
