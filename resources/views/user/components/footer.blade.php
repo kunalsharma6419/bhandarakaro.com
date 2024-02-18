@@ -62,7 +62,7 @@
     </div>
     <div class="footer-copyright border-top py-3 bg-light">
         <div class="container d-flex align-items-center copyright">
-            <p class="mb-0">© 2022 www.bhandarakaro.com All rights reserved.</p>
+            <p class="mb-0">© 2024 www.bhandarakaro.com All rights reserved.</p>
             <p class="text-muted mb-0 ms-auto d-flex align-items-center"> <a href="#" class="d-block"><img
                         alt="#" src="BhandaraKaro/NewHome/public/img/appstore.png" height="40"></a> <a
                     href="#" class="d-block ms-3"><img alt="#"
@@ -74,11 +74,12 @@
     <ul class="second-nav">
         <li><a href="{{ url('/') }}"><i class="feather-home me-2"></i>Home</a></li>
         <li><a href="#"><i class="feather-list me-2"></i>About Us</a></li>
-        <li><a href="#"><i class="feather-list me-2"></i>Bookings</a></li>
+        {{-- <li><a href="#"><i class="feather-list me-2"></i>Bookings</a></li> --}}
         <li><a href="#"><i class="feather-list me-2"></i>Our Story</a></li>
-        <li><a href="#"><i class="feather-list me-2"></i>Bhandaras</a></li>
-        <li><a href="#"><i class="feather-list me-2"></i>Contact Us</a></li>
-        <li><a href="{{ route('login') }}"><i class="feather-list me-2"></i>Bhandara Admin</a></li>
+        {{-- <li><a href="#"><i class="feather-list me-2"></i>Bhandaras</a></li> --}}
+        <li><a href="https://api.whatsapp.com/send?phone=919650815489"><i class="feather-list me-2"></i>Contact Us</a>
+        </li>
+        {{-- <li><a href="{{ route('login') }}"><i class="feather-list me-2"></i>Bhandara Admin</a></li> --}}
     </ul>
     </ul>
     <ul class="bottom-nav">
@@ -90,7 +91,7 @@
                 <p class="h5 m-0"><i class="feather-message-circle"></i></p>
                 FAQ
             </a> </li>
-        <li class="ko-fi"> <a href="#">
+        <li class="ko-fi"> <a href="https://api.whatsapp.com/send?phone=919650815489">
                 <p class="h5 m-0"><i class="feather-phone"></i></p>
                 Help
             </a> </li>

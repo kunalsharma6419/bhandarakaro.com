@@ -2,11 +2,13 @@
     <div class="bg-primary p-3 d-none srcdone">
         <div class="text-black">
             <div class="title d-flex align-items-center">
-                <a class="toggle" href="https://bhandarakaro.com/"> <span></span> </a>
-                <h4 class="fw-bold m-0 ps-5 moblogo"><a href="https://bhandarakaro.com/"><img
+                <a class="toggle" href="{{url('/')}}"> <span></span> </a>
+                <h4 class="fw-bold m-0 ps-5 moblogo"><a href="{{url('/')}}"><img
                             src="{{ asset('BhandaraKaro/images/LOGO1.png') }}" /></a></h4>
-                <a class="text-black fw-bold ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    href="https://bhandarakaro.com/"><i class="feather-filter"></i></a>
+                <!--<a class="text-black fw-bold ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal"-->
+                <!--    href="https://bhandarakaro.com/"><i class="feather-search"></i></a>-->
+                <a class="text-black fw-bold ms-auto"
+                    href="{{url('/search')}}">Search Food <i class="feather-search"></i></a>
             </div>
         </div>
         <div class="input-group rounded shadow-sm mt-3 bdrsrch"> <span
