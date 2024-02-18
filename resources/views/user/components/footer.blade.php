@@ -208,7 +208,7 @@
 
 
 <div class="whatsappchat">
-    <a href="https://api.whatsapp.com/send?phone=918297325811" target="_blank">
+    <a href="https://api.whatsapp.com/send?phone=919650815489" target="_blank">
         <img src="{{ asset('BhandaraKaro/NewHome/public/img/whatsapp.png') }}">
     </a>
 </div>

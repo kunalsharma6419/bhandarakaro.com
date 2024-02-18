@@ -32,10 +32,10 @@
                                     class="rounded-circle"> --}}
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">{{ $user->name }} <i
+                                <h6 class="mb-1 font-weight-bold">{{ old('name', Auth::user()->name) }} <i
                                         class="feather-check-circle text-success"></i></h6>
                                 <p class="text-muted m-0 small"><span class="__cf_email__"
-                                        data-cfemail="6d040c00021e0c050c032d0a000c0401430e0200">{{ $user->email }}</span>
+                                        data-cfemail="6d040c00021e0c050c032d0a000c0401430e0200">{{ old('email', Auth::user()->email) }}</span>
                                 </p>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                 <div class="form-group mb-3">
                                     <label for="phone_number">Phone Number</label>
                                     <input type="text" class="form-control" id="phone_number" name="phone_number"
-                                        value="{{ old('phone_number', Auth::user()->phone_number) }}">
+                                        value="{{ old('phone_number', Auth::user()->phone_number) }}" disabled>
                                 </div>
 
                                 <div class="form-group mb-3">

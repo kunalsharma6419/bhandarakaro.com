@@ -95,4 +95,14 @@ class CartController extends Controller
         }
     }
 
+    public function getCartCount()
+    {
+        if (Auth::check()) {
+            $cartCount = Cart::where('user_id', Auth::id())->count();
+            return response()->json(['cartCount' => $cartCount]);
+        }
+
+        return response()->json(['cartCount' => 0]);
+    }
+
 }

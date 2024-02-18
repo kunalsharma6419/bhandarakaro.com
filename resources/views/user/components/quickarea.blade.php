@@ -9,7 +9,6 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             @if (session('message'))
-
                                 <script>
                                     // Display SweetAlert when a user logs in
                                     Swal.fire({
@@ -51,21 +50,21 @@
                         </p>
                         <ul>
                             <li>
-                                <img src="{{ asset('BhandaraKaro/images/city/image 9.png') }}" />
-                                <h3>Tirupati</h3>
+                                <img src="{{ asset('BhandaraKaro/images/city/haridwar.png') }}" />
+                                <h3>Haridwar</h3>
                             </li>
                             <li>
-                                <img src="{{ asset('BhandaraKaro/images/city/image 10.png') }}" />
-                                <h3>Badrinath</h3>
+                                <img src="{{ asset('BhandaraKaro/images/city/ayodhya.png') }}" />
+                                <h3>Ayodhya</h3>
                             </li>
                             <li>
-                                <img src="{{ asset('BhandaraKaro/images/city/image 11.png') }}" />
-                                <h3>Amritsar</h3>
+                                <img src="{{ asset('BhandaraKaro/images/city/nou devi.png') }}" />
+                                <h3>Nau Devi</h3>
                             </li>
                         </ul>
                         <span>
                             <a href="{{ url('menu') }}">Book Now</a>
-                            <a href="{{ route('user.register') }}">Register Now</a>
+                            {{-- <a href="{{ route('user.register') }}">Register Now</a> --}}
                         </span>
                     </div>
                     <div class="shop-category"><img

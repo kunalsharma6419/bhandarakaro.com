@@ -273,7 +273,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'nullable|email|max:255|unique:users,email,' . Auth::id(),
-            'phone_number' => 'required|string|max:20|unique:users,phone_number,' . Auth::id(),
+            'phone_number' => 'optional|string|max:20|unique:users,phone_number,' . Auth::id(),
             'address' => 'nullable|string',
             // Add other validation rules as needed
         ]);

@@ -21,7 +21,7 @@
                     style="background-color: #fff; border-radius: 50%;">
                 <div class="pt-3 text-white">
                     <h2 class="font-weight-bold">{{ Auth::user()->name ?? '' }} 's Cart</h2>
-                    <p class="text-white m-0">963 Madyson Drive Suite 679</p>
+                    <p class="text-white m-0">{{ old('address', Auth::user()->address) }} </p>
                     <div class="rating-wrap d-flex align-items-center mt-2">
                         <ul class="rating-stars list-unstyled">
                             <li>
@@ -32,10 +32,10 @@
                                 <i class="feather-star"></i>
                             </li>
                         </ul>
-                        <p class="label-rating text-white ml-2 small"> (245 Reviews)</p>
+                        <p class="label-rating text-white ml-2 small"> ({{ old('email', Auth::user()->email) }})</p>
                     </div>
                 </div>
-                <div class="pb-4">
+                {{-- <div class="pb-4">
                     <div class="row">
                         <div class="col-6 col-md-2">
                             <p class="text-white-50 font-weight-bold m-0 small">Delivery</p>
@@ -46,7 +46,7 @@
                             <p class="text-white m-0">8:00 AM</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="container">

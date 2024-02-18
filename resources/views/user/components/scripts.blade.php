@@ -103,3 +103,19 @@
         }
     });
 </script>
+<script>
+    function updateCartCount() {
+        // AJAX request to get the latest cart count
+        $.get("{{ route('get.cart.count') }}", function(data) {
+            // Update the cart count badge
+            $('#cart-count-badge').text(data.cartCount);
+        });
+    }
+
+    // Call the function to update cart count initially
+    updateCartCount();
+
+    // You can call this function after adding a product to update the cart count
+    // For example, you can call it after a successful AJAX request in your addProduct function
+    // updateCartCount();
+</script>

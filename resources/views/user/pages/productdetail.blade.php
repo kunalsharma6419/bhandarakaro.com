@@ -84,7 +84,8 @@
                                 {{-- <button class="btn btn-warning btn-lg btn-block" onclick="preOrder()">
                                     Pre-Order
                                 </button> --}}
-                                <span class="btn btn-lg btn-outline-primary addToCartBtn"> <a href="#">Add to
+                                <span class="btn-lg addToCartBtn"><a href="#" class="btn btn-outline-primary">Add
+                                        to
                                         Cart</a></span>
                                 {{-- <div class="btn btn-lg btn-outline-primary addToCartBtn"><a href="#">Add to cart</a>
                                 </div> --}}
@@ -327,6 +328,7 @@
                             console.log("hrllo " + response);
 
                             if (response && response.status) {
+                                window.location.reload();
                                 swal(response.status, {
                                     icon: "success",
                                 });

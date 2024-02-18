@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
     // Route::post('/userlogout', [AuthController::class, 'destroy'])->name('userlogout');
     Route::get('/cart', [CartController::class, 'viewCart']);
+    Route::get('/get-cart-count', [CartController::class,'getCartCount'])->name('get.cart.count');
     Route::get('/checkout', [CheckoutController::class, 'checkout']);
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
     Route::prefix('superadmin')->group(function () {

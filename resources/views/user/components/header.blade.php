@@ -81,8 +81,11 @@
 
 
                         <a href="{{ url('cart') }}" class="widget-header me-4 text-dark">
-                            <div class="icon d-flex align-items-center"> <i
-                                    class="feather-shopping-cart h6 me-2 mb-0"></i> <span>Cart</span> </div>
+                            <div class="icon d-flex align-items-center">
+                                <i class="feather-shopping-cart h6 me-2 mb-0"></i>
+                                <span>Cart</span>
+                                <span id="cart-count-badge" class="badge bg-primary"></span>
+                            </div>
                         </a>
                         <a class="toggle" href="#"> <span></span> </a>
                     </div>

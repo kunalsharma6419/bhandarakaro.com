@@ -25,7 +25,7 @@ class HomeController extends Controller
         } elseif($usertype=='2') {
             return view('vendor.dashboard');
         } else {
-            $locations = Location::take(7)->get();
+            $locations = Location::take(10)->get();
             $categories = Category::all();
             $offers = Offer::latest()->get();
             $foodproducts = FoodProduct::with('category', 'offer')
@@ -49,7 +49,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $locations = Location::take(7)->get();
+        $locations = Location::take(10)->get();
         $categories = Category::all();
         $offers = Offer::latest()->get();
         $foodproducts = FoodProduct::with('category', 'offer')
@@ -96,7 +96,7 @@ class HomeController extends Controller
 
     public function productdetail($id)
     {
-        $locations = Location::take(7)->get();
+        $locations = Location::take(10)->get();
         $categories = Category::all();
         $offers = Offer::latest()->get();
         $foodproduct = FoodProduct::findOrFail($id);
