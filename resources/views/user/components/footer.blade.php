@@ -73,9 +73,9 @@
 <nav id="main-nav">
     <ul class="second-nav">
         <li><a href="{{ url('/') }}"><i class="feather-home me-2"></i>Home</a></li>
-        <li><a href="#"><i class="feather-list me-2"></i>About Us</a></li>
+        <li><a href="{{ url('/about-us') }}"><i class="feather-list me-2"></i>About Us</a></li>
         {{-- <li><a href="#"><i class="feather-list me-2"></i>Bookings</a></li> --}}
-        <li><a href="#"><i class="feather-list me-2"></i>Our Story</a></li>
+        <li><a href="{{ url('/our-story')}}"><i class="feather-list me-2"></i>Our Story</a></li>
         {{-- <li><a href="#"><i class="feather-list me-2"></i>Bhandaras</a></li> --}}
         <li><a href="https://api.whatsapp.com/send?phone=919650815489"><i class="feather-list me-2"></i>Contact Us</a>
         </li>

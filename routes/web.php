@@ -41,6 +41,8 @@ Route::get('/search-temple', [HomeController::class, 'searchtemple']);
 Route::get('/successful', [HomeController::class, 'successful']);
 Route::get('/terms', [HomeController::class, 'terms']);
 Route::get('/search-location', [HomeController::class, 'searchLocation'])->name('search.location');
+Route::get('/about-us', [HomeController::class, 'aboutus']);
+Route::get('/our-story', [HomeController::class, 'ourstory']);
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
