@@ -27,6 +27,60 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <h2 class="text-center mb-4">About Us</h2>
+                    <div class="container mt-5">
+                        <h1 class="display-4 text-center">Welcome to "VYY1421 Shree Annakoot Sitaram Private Limited"</h1>
+                        <h3>Presents:
+                            <ul>
+                                <li><a href="https://bhandarawala.co.in" target="_blank">Bhandarawala.co.in</a></li>
+                                <li><a href="https://bhandarakaro.com" target="_blank">Bhandarakaro.com</a></li>
+                                <li><a href="https://bhandarakaroin" target="_blank">Bhandarakaro.in</a></li>
+                            </ul>
+                        </h3>
+                        <p class="lead">Your premier destination for all your event planning and catering needs!</p>
+
+                        <p>We are thrilled to be your go-to platform for seamless, stress-free event arrangements that turn
+                            your visions into memorable experiences.</p>
+
+                        <p>At VYY1421 Shree Annakoot Sitaram Private Limited, we understand the importance of every
+                            celebration, whether it's a wedding, a bhandara, or any other special event. Our mission is to
+                            connect clients with top-tier vendors and service providers to ensure that every occasion is
+                            executed flawlessly, leaving lasting impressions on you and your guests.</p>
+
+                        <h2 class="mt-4">Our Vision</h2>
+                        <p>Our vision is simple: to revolutionize the event planning industry by providing a convenient,
+                            efficient, and reliable platform for both clients and vendors. We strive to be the bridge that
+                            connects individuals with the best resources, creating unforgettable moments that exceed
+                            expectations.</p>
+
+                        <h2 class="mt-4">What Sets Us Apart</h2>
+                        <ul>
+                            <li><strong>Customer-Centric Approach:</strong> Your satisfaction is our top priority. We
+                                prioritize your needs and preferences, offering personalized solutions that reflect your
+                                unique style and requirements.</li>
+                            <li><strong>Extensive Vendor Network:</strong> We have curated a diverse network of trusted
+                                vendors, ranging from catering services and decorators to entertainers and photographers.
+                            </li>
+                            <li><strong>Seamless Booking Process:</strong> Our user-friendly platform simplifies the booking
+                                process, allowing you to browse, select, and secure services with ease.</li>
+                            <li><strong>Commitment to Excellence:</strong> We are dedicated to upholding the highest
+                                standards of professionalism, integrity, and quality in everything we do.</li>
+                        </ul>
+
+                        <h2 class="mt-4">Get in Touch</h2>
+                        <p>Ready to plan your next event with confidence? Connect with us today and let us bring your vision
+                            to life! Whether you're hosting an intimate gathering or a grand celebration, we have the
+                            expertise and resources to make it extraordinary.</p>
+
+                        <p>Thank you for choosing VYY1421 Shree Annakoot Sitaram Private Limited. We look forward to being a
+                            part of your special moments!</p>
+
+                        <h2 class="mt-4">Contact Us</h2>
+                        <p><strong>Registered office:</strong> H No. D-138, 2nd Floor, Sector 15A, Ajronda, Escortsnagar
+                            Faridabad, Haryana -121007</p>
+                        <p><strong>Email Id:</strong> <a
+                                href="mailto:rawatpriyankamalik1401@gmail.com">rawatpriyankamalik1401@gmail.com</a></p>
+                        <p><strong>Contact No.:</strong><a href="telto:+91-9650815489">+91-9650815489</a> </p>
+                    </div>
                     <p class="text-center lead">Bringing Tradition Online, Saving You Time and Money</p>
                     <p>For over 20 years, Bhandarawala has proudly provided traditional Bhandara services throughout
                         India. Now, we're taking our commitment to convenience and quality a step further by launching
@@ -83,119 +137,8 @@
     </div>
     </div>
 
-
-
-    {{-- <section class="process-area">
-        <div class="theeka-process-desktop">
-            <img src="BhandaraKaro/NewHome/public/img/desktop-banner.gif" />
-        </div>
-
-
-        <div class="theeka-process-mobile">
-            <img src="BhandaraKaro/NewHome/public/img/mobile-banner.gif" />
-        </div>
-    </section> --}}
-
     <div class="container">
-        <!-- welcome section -->
 
-        {{-- <div class="most_sale">
-            <div class="row mb-3">
-                <div class="col-md-4 mb-3">
-                    <div
-                        class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i>
-                                    3.1 (300+)</span></div>
-                            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-                                        class="feather-heart"></i></a></div>
-                            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                            <a href="restaurant.html">
-                                <img alt="#" src="{{ asset('BhandaraKaro/images/cart/5.png') }}"
-                                    class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
-                                    </a>
-                                </h6>
-                                <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                                <p class="text-gray mb-3 time"><span
-                                        class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                                            class="feather-clock"></i>
-                                        15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
-                            </div>
-                            <div class="list-card-badge">
-                                <span class="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div
-                        class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <div class="star position-absolute"><span class="badge badge-success"><i
-                                        class="feather-star"></i>
-                                    3.1 (300+)</span></div>
-                            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-                                        class="feather-heart"></i></a></div>
-                            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                            <a href="restaurant.html">
-                                <img alt="#" src="{{ asset('BhandaraKaro/images/cart/10.png') }}"
-                                    class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">Thai Famous Cuisine</a></h6>
-                                <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                <p class="text-gray mb-3 time"><span
-                                        class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                                            class="feather-clock"></i>
-                                        30–35 min</span> <span class="float-right text-black-50"> $250 FOR TWO</span></p>
-                            </div>
-                            <div class="list-card-badge">
-                                <span class="badge badge-success">OFFER</span> <small>65% off</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div
-                        class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <div class="star position-absolute"><span class="badge badge-success"><i
-                                        class="feather-star"></i>
-                                    3.1 (300+)</span></div>
-                            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-                                        class="feather-heart"></i></a></div>
-                            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                            <a href="restaurant.html">
-                                <img alt="#" src="{{ asset('BhandaraKaro/images/cart/15.png') }}"
-                                    class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
-                                    </a>
-                                </h6>
-                                <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                                <p class="text-gray mb-3 time"><span
-                                        class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                                            class="feather-clock"></i>
-                                        15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
-                            </div>
-                            <div class="list-card-badge">
-                                <span class="badge badge-danger">OFFER</span> <small>65% OSAHAN50</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
     </div>
 

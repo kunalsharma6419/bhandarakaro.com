@@ -35,14 +35,15 @@ Route::get('/coming-soon', [HomeController::class, 'comingsoon']);
 Route::get('/contact-us', [HomeController::class, 'contactus']);
 Route::get('/faq', [HomeController::class, 'faq']);
 Route::get('/my-order', [HomeController::class, 'myorder']);
-Route::get('/privacy', [HomeController::class, 'privacy']);
+Route::get('/privacy-policy', [HomeController::class, 'privacy']);
 Route::get('/search', [HomeController::class, 'search']);
 Route::get('/search-temple', [HomeController::class, 'searchtemple']);
 Route::get('/successful', [HomeController::class, 'successful']);
-Route::get('/terms', [HomeController::class, 'terms']);
+Route::get('/terms-and-conditions', [HomeController::class, 'terms']);
 Route::get('/search-location', [HomeController::class, 'searchLocation'])->name('search.location');
 Route::get('/about-us', [HomeController::class, 'aboutus']);
 Route::get('/our-story', [HomeController::class, 'ourstory']);
+Route::get('/cancellation-refund', [HomeController::class, 'cancellation']);
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {

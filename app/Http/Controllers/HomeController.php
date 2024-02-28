@@ -202,7 +202,15 @@ class HomeController extends Controller
     public function privacy()
     {
         $locations = Location::all();
-        return view('user.pages.privacy', compact('locations'));
+        $categories = Category::all();
+        return view('user.pages.privacypolicy', compact('locations','categories'));
+    }
+
+    public function cancellation()
+    {
+        $locations = Location::all();
+        $categories = Category::all();
+        return view('user.pages.cancellationrefund', compact('locations','categories'));
     }
 
     public function search()
@@ -271,7 +279,8 @@ class HomeController extends Controller
     public function terms()
     {
         $locations = Location::all();
-        return view('user.pages.terms', compact('locations'));
+        $categories = Category::all();
+        return view('user.pages.termscondition', compact('locations','categories'));
     }
 
     public function userhome()
