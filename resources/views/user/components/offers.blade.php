@@ -13,131 +13,114 @@
             @endforeach
         </div>
     </div>
-    <div class="container">
+     <!-- swiper js slider -->
+    <div class="swiper mySwiper">
         <div class="main-heading">Inspriration for Your First Bhandara</div>
-        <div class="clearfix"></div>
-        <div class="cat-slider">
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/vegpulao2.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Veg Pulao</p>
-                </a>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="Veg Pulao" src="{{ asset('BhandaraKaro/NewHome/public/img/category/vegpulao2.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Veg Pulao</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/fullthali.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Full Thali</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="Full Thali"
+                            src="{{ asset('BhandaraKaro/NewHome/public/img/category/fullthali.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Full Thali</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/sweet1.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Sweets</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/sweet1.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Sweets</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/dosa.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Dosa</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/dosa.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Dosa</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/south1.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Idli</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/south1.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Idli</p>
+                    </a>
+                </div>
             </div>
-            <!-- <div class="cat-item px-1 py-3">
- <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
- <img alt="#" src="public/img/category/noodles.jpg" class="img-fluid mb-2">
- <p class="cattxt">Noodles</p>
- </a>
- </div> -->
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/norththali.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">North Indian</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/norththali.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">North Indian</p>
+                    </a>
+                </div>
             </div>
-
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/pasta.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Pasta</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/poori1.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Poori</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/kulfi.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Kulfi</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/south2.png') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">South Indian</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/pavbhaji.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Pav Bhaji</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/salad.jpg') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Salad</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/poori1.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Poori</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/paratha.jpg') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Paratha</p>
+                    </a>
+                </div>
             </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/veg.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Pure Veg</p>
-                </a>
-            </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/vegroll.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Veg Rolls</p>
-                </a>
-            </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/south2.png') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">South Indian</p>
-                </a>
-            </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/salad.jpg') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Salad</p>
-                </a>
-            </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#" src="{{ asset('BhandaraKaro/NewHome/public/img/category/paratha.jpg') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Paratha</p>
-                </a>
-            </div>
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
-                    <img alt="#"
-                        src="{{ asset('BhandaraKaro/NewHome/public/img/category/chole-bature.jpg') }}"
-                        class="img-fluid mb-2">
-                    <p class="cattxt">Chole Bature</p>
-                </a>
+            <div class="swiper-slide">
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="#">
+                        <img alt="#"
+                            src="{{ asset('BhandaraKaro/NewHome/public/img/category/chole-bature.jpg') }}"
+                            class="img-fluid mb-2">
+                        <p class="cattxt">Chole Bature</p>
+                    </a>
+                </div>
             </div>
         </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
     <div class="container mt-4">
         <div class="pt-4 pb-2 title d-flex align-items-center">
