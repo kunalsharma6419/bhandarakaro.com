@@ -14,15 +14,29 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
+<!-- Initialize Swiper -->
 <script>
     var swiper = new Swiper(".mySwiper", {
-        slidesPerView: "auto",
         loop: true,
         spaceBetween: 0,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+        breakpoints: {
+            0: {
+                slidesPerView: 3
+            },
+            600: {
+                slidesPerView: 5
+            },
+            700: {
+                slidesPerView: 6
+            },
+            980: {
+                slidesPerView: 8
+            }
+        }
     });
 </script>
 
