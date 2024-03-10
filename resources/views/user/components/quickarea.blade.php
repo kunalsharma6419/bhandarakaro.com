@@ -30,10 +30,12 @@
                             <div class="row">
                                 @foreach ($locations as $location)
                                     <div class="col-lg-3 catcol">
-                                        <div class="category-lists">
-                                            <img src="{{ asset('/locationImage/' . $location->location_image) }}" />
-                                            <h3>{{ $location->city }}</h3>
-                                        </div>
+                                        <a href="{{ route('locations.show', $location->id) }}">
+                                            <div class="category-lists">
+                                                <img src="{{ asset('/locationImage/' . $location->location_image) }}" />
+                                                <h3>{{ $location->city }}</h3>
+                                            </div>
+                                        </a>
                                     </div>
                                 @endforeach
                             </div>

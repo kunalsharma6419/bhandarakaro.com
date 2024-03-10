@@ -305,4 +305,21 @@ class HomeController extends Controller
                 ->get();
         return view('user.pages.home', compact('locations', 'categories', 'offers', 'foodproducts', 'flashdeals', 'trendingfoods', 'templeWithMaxReviews'));
     }
+
+    public function categorydetail(Category $category)
+    {
+        $locations = Location::all();
+        $categories = Category::all();
+        $foodproducts = FoodProduct::where('category_id', $category->id)->get();
+        return view('user.pages.categorydetail', compact('locations','categories', 'foodproducts', 'category'));
+    }
+
+    public function locationdetail($locationId)
+    {
+        $locations = Location::all();
+        $categories = Category::all();
+        $location = Location::findOrFail($locationId); // Ensure you have these relationships defined in your Location model
+        $foodproducts = FoodProduct::all();
+        return view('user.pages.locationdetail', compact('locations','categories', 'location', 'foodproducts'));
+    }
 }

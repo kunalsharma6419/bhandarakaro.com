@@ -44,6 +44,8 @@ Route::get('/search-location', [HomeController::class, 'searchLocation'])->name(
 Route::get('/about-us', [HomeController::class, 'aboutus']);
 Route::get('/our-story', [HomeController::class, 'ourstory']);
 Route::get('/cancellation-refund', [HomeController::class, 'cancellation']);
+Route::get('/categories/{category}', [HomeController::class, 'categorydetail'])->name('category.show');
+Route::get('/locations/{location}', [HomeController::class, 'locationdetail'])->name('locations.show');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {

@@ -7,7 +7,8 @@
                     <h6 class="title">Our Category</h6>
                     <ul class="list-unstyled hov_footer ftrlist">
                         @foreach ($categories as $category)
-                            <li><a href="#" class="text-muted">{{ $category->category_name }}</a></li>
+                            <li><a href="{{ route('category.show', $category) }}"
+                                    class="text-muted">{{ $category->category_name }}</a></li>
                         @endforeach
                     </ul>
 
@@ -76,7 +77,7 @@
         <li><a href="{{ url('/about-us') }}"><i class="feather-list me-2"></i>About Us</a></li>
         {{-- <li><a href="#"><i class="feather-list me-2"></i>Bookings</a></li> --}}
         <li><a href="{{ url('/our-story') }}"><i class="feather-list me-2"></i>Our Story</a></li>
-        <li><a href="{{url('/terms-and-conditions')}}"><i class="feather-list me-2"></i>Terms and Conditions</a></li>
+        <li><a href="{{ url('/terms-and-conditions') }}"><i class="feather-list me-2"></i>Terms and Conditions</a></li>
         <li><a href="{{ url('/privacy-policy') }}"><i class="feather-list me-2"></i>Privacy Policy</a></li>
         <li><a href="{{ url('/cancellation-refund') }}"><i class="feather-list me-2"></i>Cancellation & Refund
                 Policy</a>
