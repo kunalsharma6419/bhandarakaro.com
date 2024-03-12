@@ -50,5 +50,7 @@
                 </x-jet-button>
             </div>
         </form>
+        <p align="center">Don't have an account?<a class="underline text-sm text-gray-600 hover:text-gray-900"
+                href="{{ route('register') }}"> Sign up</a></p>
     </x-jet-authentication-card>
 </x-guest-layout>

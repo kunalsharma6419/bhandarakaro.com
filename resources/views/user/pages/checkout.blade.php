@@ -269,8 +269,11 @@
                                     </div>
                                 </div>
                                 @if ($cartitems->count() > 0)
-                                    @php $total = 0; @endphp
-                                    @php $totaldiscounted = 0; @endphp
+                                    @php
+                                        $total = 0;
+                                        $platformFeeTotal = 0;
+                                    @endphp
+                                    {{-- @php $totaldiscounted = 0; @endphp --}}
                                     <div class="bg-white border-bottom py-2">
                                         @foreach ($cartitems as $item)
                                             <div
@@ -279,12 +282,12 @@
                                                     <div class="mr-2 text-danger">&middot;</div>
                                                     <div class="media-body">
                                                         <p class="m-0">{{ $item->products->name }}</p>
-                                                        @php
+                                                        {{-- @php
                                                             // Calculate the discounted price
                                                             $discountedPrice = $item->products->price - ($item->products->price * $item->products->offer->offer_discount_percent) / 100;
-                                                        @endphp
+                                                        @endphp --}}
                                                         <p class="text-gray mb-0 float-right ml-2 text-muted small">Price :
-                                                            ₹ {{ number_format($discountedPrice, 2) }}</p>
+                                                            ₹ {{ $item->products->price }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-center">
@@ -295,8 +298,13 @@
                                                         style="width: 82px;">
                                                 </div>
                                             </div>
-                                            @php $total += $item->products->price * $item->prod_qty ; @endphp
-                                            @php $totaldiscounted += $discountedPrice * $item->prod_qty ; @endphp
+                                            @php
+                                                $productTotal = $item->products->price * $item->prod_qty;
+                                                $platformFee = ($productTotal * 2) / 100;
+                                                $total += $productTotal;
+                                                $platformFeeTotal += $platformFee;
+                                            @endphp
+                                            {{-- @php $totaldiscounted += $discountedPrice * $item->prod_qty ; @endphp --}}
                                         @endforeach
                                     </div>
                                     {{-- <div class="bg-white p-3 py-3 border-bottom clearfix">
@@ -315,25 +323,29 @@
                                         <p class="mb-1">Item Total: <span
                                                 class="float-right text-dark">₹{{ $total }}</span>
                                         </p>
+                                        <p class="mb-1">
+                                            Platform Fee (2%): ₹ {{ number_format($platformFeeTotal, 2) }}
+                                        </p>
                                         {{-- <p class="mb-1">Platform Fee<span class="text-info ml-1"><i
                                     class="feather-info"></i></span><span class="float-right text-dark">$10</span></p> --}}
-                                        @php
+                                        {{-- @php
                                             // Calculate the discounted price
                                             $totaldiscountedPrice = $total - $totaldiscounted;
-                                        @endphp
-                                        <p class="mb-1 text-success">Total Discount: <span
+                                        @endphp --}}
+                                        {{-- <p class="mb-1 text-success">Total Discount: <span
                                                 class="float-right text-success">₹{{ number_format($totaldiscountedPrice, 2) }}</span>
-                                        </p>
+                                        </p> --}}
                                         <hr>
                                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">₹
-                                                {{ $totaldiscounted }}</span></h6>
+                                                {{ number_format($total + $platformFeeTotal, 2) }}</span></h6>
                                     </div>
                                     <div class="p-3">
                                         <script>
                                             document.forms['redirectForm'].submit();
                                         </script>
                                         @php
-                                            $payment_url = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
+                                            $payment_url =
+                                                'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction';
                                         @endphp
                                         <form name="redirectForm" method="post" action="{{ $payment_url }}">
                                             @csrf
@@ -348,7 +360,7 @@
                                     </div>
                                 @else
                                     @php $total = 0; @endphp
-                                    @php $totaldiscounted = 0; @endphp
+                                    {{-- @php $totaldiscounted = 0; @endphp --}}
                                     <div class="col-md-12 px-0 border-top">
                                         <div class="">
                                             <h6 class="p-3 m-0 bg-light w-100">No Bhandara Items In Cart<small

@@ -29,8 +29,7 @@
                          Profile
                      </a> </div>
              @else
-                 <div class="col"> <a href="{{ route('user.login') }}"
-                         class="text-dark small fw-bold text-decoration-none">
+                 <div class="col"> <a href="{{ route('login') }}" class="text-dark small fw-bold text-decoration-none">
                          <p class="h4 m-0"><i class="feather-user"></i></p>
                          Signin
                      </a> </div>

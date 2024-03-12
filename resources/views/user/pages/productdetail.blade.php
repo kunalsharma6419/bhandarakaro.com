@@ -53,17 +53,18 @@
                         <div class="col-md-6">
                             <div class="col-md-6 text-right">
                                 <div class="row mb-3">
-                                    @php
+                                    {{-- @php
                                         // Calculate the discounted price
                                         $discountedPrice = $foodproduct->price - ($foodproduct->price * $foodproduct->offer->offer_discount_percent) / 100;
-                                    @endphp
+                                    @endphp --}}
                                     <div class="col-md-6">
-                                        <h5 class="discount">₹{{ number_format($discountedPrice, 2) }}</h5>
+                                        {{-- <h5 class="discount">₹{{ number_format($discountedPrice, 2) }}</h5>
                                         <h6 class="price" style="text-decoration: line-through; color:red;">
-                                            ₹{{ $foodproduct->price }}</h6>
+                                            ₹{{ $foodproduct->price }}</h6> --}}
+                                        <h5 class="price">Price : ₹ {{ $foodproduct->price }}</h5>
                                     </div>
 
-                                    <span class="descount_perc">-{{ $foodproduct->offer->offer_discount_percent }}%</span>
+                                    {{-- <span class="descount_perc">-{{ $foodproduct->offer->offer_discount_percent }}%</span> --}}
                                 </div>
 
                                 <div class="d-flex justify-content-between mb-3">
@@ -84,7 +85,7 @@
                                 {{-- <button class="btn btn-warning btn-lg btn-block" onclick="preOrder()">
                                     Pre-Order
                                 </button> --}}
-                                <span class="btn-lg addToCartBtn"><a href="#" class="btn btn-outline-primary">Add
+                                <span class="btn-lg addToCartBtn"> <a href="#"class="btn btn-outline-primary">Add
                                         to
                                         Cart</a></span>
                                 {{-- <div class="btn btn-lg btn-outline-primary addToCartBtn"><a href="#">Add to cart</a>

@@ -1,7 +1,9 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="{{ url('/') }}"> <img src="{{ asset('BhandaraKaro/images/LOGO1.png') }}"
+                    style="width:220px; height: 120px;">
+            </a>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -23,8 +25,14 @@
 
             <div class="mt-4">
                 <x-jet-label for="phone_number" value="{{ __('Phone Number') }}" />
-                <x-jet-input id="phone_number" class="block mt-1 w-full" type="number" name="phone_number"
+                <x-jet-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number"
                     :value="old('phone_number')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="address" value="{{ __('Address') }}" />
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"
+                    required />
             </div>
 
             <div class="mt-4">
@@ -76,5 +84,7 @@
                 </x-jet-button>
             </div>
         </form>
+        {{-- <p align="center">Already have an account?<a class="underline text-sm text-gray-600 hover:text-gray-900"
+                href="{{ route('login') }}">Login</a></p> --}}
     </x-jet-authentication-card>
 </x-guest-layout>

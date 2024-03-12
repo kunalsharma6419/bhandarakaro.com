@@ -48,15 +48,22 @@ class CheckoutController extends Controller
         $cartitems_total = Cart::where('user_id', Auth::id())->get();
         foreach ($cartitems_total as $prod)
         {
-            // Make sure the product and offer are available
-            if ($prod->products && $prod->products->offer) {
-                // Calculate the discounted price
-                $discountedPrice = $prod->products->price - ($prod->products->price * $prod->products->offer->offer_discount_percent) / 100;
+            // // Make sure the product and offer are available
+            // if ($prod->products && $prod->products->offer) {
+            //     // Calculate the discounted price
+            //     $discountedPrice = $prod->products->price - ($prod->products->price * $prod->products->offer->offer_discount_percent) / 100;
 
-                // Add the discounted price multiplied by quantity to the total
-                $total += $discountedPrice * $prod->prod_qty;
+            //     // Add the discounted price multiplied by quantity to the total
+            //     $total += $discountedPrice * $prod->prod_qty;
+            // }
+            if ($prod->products) {
+                $total += $prod->products->price * $prod->prod_qty;
             }
         }
+
+        // Add 2% Platform fee to the total
+        $platformFee = ($total * 2) / 100;
+        $total += $platformFee;
 
         $booking->total_price = $total;
         $booking->booking_date = $request->input('booking_date');
@@ -69,12 +76,12 @@ class CheckoutController extends Controller
         foreach ($cartitems as $item)
         {
             // Calculate discounted price
-            $discountedPrice = $item->products->price - ($item->products->price * $item->products->offer->offer_discount_percent) / 100;
+            // $discountedPrice = $item->products->price - ($item->products->price * $item->products->offer->offer_discount_percent) / 100;
             BookingItem::create([
                 'booking_id' => $booking->id,
                 'prod_id' => $item->prod_id,
                 'qty' => $item->prod_qty,
-                'price' => $discountedPrice,
+                'price' => $item->products->price,
             ]);
         }
 
@@ -116,6 +123,7 @@ class CheckoutController extends Controller
 
         // Prepare and send request to payment gateway
         $order = Indipay::gateway('CCAvenue')->prepare($parameters);
+//         // dd($order);
 
         return Indipay::process($order);
 

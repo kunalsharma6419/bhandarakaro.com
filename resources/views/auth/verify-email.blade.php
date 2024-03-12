@@ -1,7 +1,9 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="{{ url('/') }}"> <img src="{{ asset('BhandaraKaro/images/LOGO1.png') }}"
+                    style="width:220px; height: 120px;">
+            </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -26,10 +28,7 @@
             </form>
 
             <div>
-                <a
-                    href="{{ route('profile.show') }}"
-                    class="underline text-sm text-gray-600 hover:text-gray-900"
-                >
+                <a href="{{ route('profile.show') }}" class="underline text-sm text-gray-600 hover:text-gray-900">
                     {{ __('Edit Profile') }}</a>
 
                 <form method="POST" action="{{ route('logout') }}" class="inline">
