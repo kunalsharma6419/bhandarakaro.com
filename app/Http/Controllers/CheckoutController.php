@@ -13,7 +13,8 @@ use App\Models\Booking;
 use App\Models\BookingItem;
 use App\Models\BookingPayment;
 use Softon\Indipay\Facades\Indipay;
-
+use PDF;
+use Mail;
 
 class CheckoutController extends Controller
 {
@@ -133,6 +134,7 @@ class CheckoutController extends Controller
     {
         $response = Indipay::response($request);
         $latestBookingItem = BookingItem::latest()->first();
+        //dd($latestBookingItem);
         BookingPayment::create([
             'booking_id' => $latestBookingItem->booking_id,
             'order_id' => $response['order_id'],
@@ -181,6 +183,26 @@ class CheckoutController extends Controller
 
         // Check if payment was successful
         if ($response['order_status'] === 'Success') {
+            // Send email
+            $data["email"] = $response['billing_email'];
+            $data["client_name"] = $response['billing_name'];
+            $data["subject"] = "Thank You For Your Bhandara Booking. $latestBookingItem->booking_id";
+            $BookingPayment=BookingPayment::latest()->first();
+            $bookingItem=BookingItem::where('booking_id',$BookingPayment->booking_id)->get();
+            $booking=Booking::latest()->first();
+            //return view('testPDF',compact('bookingItem','response','booking'));
+           // exit();
+            $pdf = PDF::loadView('testPDF',compact('bookingItem','response','booking'));          
+            try {
+                Mail::send('mail', compact('response','booking'), function ($message) use ($data, $pdf) {
+                    $message->to($data["email"], $data["client_name"])
+                        ->subject($data["subject"])
+                        ->attachData($pdf->output(), "invoice.pdf");
+                });
+            } catch (JWTException $exception) {
+                // Handle mail sending exception
+                return redirect()->back()->withErrors('Error sending mail')->withInput();
+            }
             // Your code for successful payment
             return view('user.pages.payment.success', compact('response'));
         } elseif ($response['order_status'] === 'Failure') {

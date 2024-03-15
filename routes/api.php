@@ -24,7 +24,7 @@ use App\Http\Controllers\Api\CartController;
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/user', [AuthController::class,'userGet'])->name('userget');
-        Route::post('/logout', [AuthController::class,'logout'])->name('logout');
+        Route::post('/logout', [AuthController::class,'logout'])->name('mobile.logout');
         Route::post('/food_product_show',[FoodProductController::class,'foodProductShow'])->name('foodproductshow');
         Route::post('/food_product',[FoodProductController::class,'foodProductAll'])->name('foodproductall');
         Route::post('/food_product_show',[FoodProductController::class,'foodProductShow'])->name('foodproductshow');
@@ -51,10 +51,10 @@ use App\Http\Controllers\Api\CartController;
 
 
 
-    Route::post('/register',[AuthController::class,'register'])->name('register');
-    Route::post('/verify',[AuthController::class,'verify'])->name('verify');
-    Route::post('/login/sendotp', [AuthController::class, 'generate'])->name('user.login.sendotp');
-    Route::post('/login/verifyotp', [AuthController::class, 'verifyOTP'])->name('user.login.verifyotp.submit');
+    // Route::post('/register',[AuthController::class,'register'])->name('mobile.register');
+    // Route::post('/verify',[AuthController::class,'verify'])->name('verify');
+    // Route::post('/login/sendotp', [AuthController::class, 'generate'])->name('user.login.sendotp');
+    // Route::post('/login/verifyotp', [AuthController::class, 'verifyOTP'])->name('user.login.verifyotp.submit');
 
 
 
