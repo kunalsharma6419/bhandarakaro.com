@@ -200,6 +200,7 @@ class CheckoutController extends Controller
             try {
                 Mail::send('mail', compact('response','booking'), function ($message) use ($data, $pdf) {
                     $message->to($data["email"], $data["client_name"])
+                        ->cc(['vyy1421shreeannkootsitaram09@gmail.com', 'malikbharat19@gmail.com'])
                         ->subject($data["subject"])
                         ->attachData($pdf->output(), "invoice.pdf");
                 });
