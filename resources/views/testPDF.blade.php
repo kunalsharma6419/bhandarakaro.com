@@ -157,22 +157,31 @@
                         <td>{{$item->price}}</td>
                         <td>{{$itemAmount}}</td>
                     </tr>
-                @endforeach   
+                @endforeach
                 <tr>
                     <td colspan="4" class="total-text">Total</td>
                     <td class="total-amount">Rs. {{ number_format($totalAmount, 2) }}</td>
                 </tr>
+                @php
+                    $platformFee = $totalAmount * 0.02;
+                    $totalAmount += $platformFee;
+                @endphp
                 <tr>
                     <td colspan="4" class="total-text">Platform Fees (2%)</td>
-                    <td class="total-amount">Rs. {{ number_format($totalAmount * 0.02, 2) }}</td>
+                    <td class="total-amount">Rs. {{ number_format($platformFee, 2) }}</td>
                 </tr>
+                <!-- Calculate and display GST (18%) on platform fees -->
+                @php
+                    $gstOnPlatformFees = $platformFee * 0.18;
+                    $totalAmount += $gstOnPlatformFees;
+                @endphp
                 <tr>
                     <td colspan="4" class="total-text">GST (18%)</td>
-                    <td class="total-amount">Rs. {{ number_format($totalAmount * 0.18, 2) }}</td>
+                    <td class="total-amount">Rs. {{ number_format($gstOnPlatformFees, 2) }}</td>
                 </tr>
                 <tr>
                     <td colspan="4" class="total-text">Grand Total</td>
-                    <td class="total-amount">Rs. {{ number_format($totalAmount * 1.20, 2) }}</td>
+                    <td class="total-amount">Rs. {{ number_format($totalAmount, 2) }}</td>
                 </tr>
             </tbody>
         </table>

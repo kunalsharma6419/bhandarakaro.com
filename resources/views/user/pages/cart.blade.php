@@ -160,7 +160,7 @@
                                                 $platformFee = ($productTotal * 2) / 100;
                                                 $total += $productTotal;
                                                 $platformFeeTotal += $platformFee;
-                                                $gstFee = ($total * 18) / 100;
+                                                $gstFee = ($platformFeeTotal * 18) / 100;
                                                 $gstFeeTotal += $gstFee;
                                             @endphp
                                             {{-- @php $totaldiscounted += $discountedPrice * $item->prod_qty ; @endphp --}}

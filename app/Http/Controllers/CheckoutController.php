@@ -65,7 +65,7 @@ class CheckoutController extends Controller
         // Add 2% Platform fee to the total
         $platformFee = ($total * 2) / 100;
         // Calculate GST fee (18%)
-        $gstFee = ($total * 18) / 100;
+        $gstFee = ($platformFee * 18) / 100;
 
         // Add platform fee and GST fee to the total
         $total += $platformFee + $gstFee;
