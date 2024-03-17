@@ -272,6 +272,7 @@
                                     @php
                                         $total = 0;
                                         $platformFeeTotal = 0;
+                                        $gstFeeTotal = 0;
                                     @endphp
                                     {{-- @php $totaldiscounted = 0; @endphp --}}
                                     <div class="bg-white border-bottom py-2">
@@ -303,6 +304,8 @@
                                                 $platformFee = ($productTotal * 2) / 100;
                                                 $total += $productTotal;
                                                 $platformFeeTotal += $platformFee;
+                                                $gstFee = ($total * 18) / 100;
+                                                $gstFeeTotal += $gstFee;
                                             @endphp
                                             {{-- @php $totaldiscounted += $discountedPrice * $item->prod_qty ; @endphp --}}
                                         @endforeach
@@ -326,6 +329,9 @@
                                         <p class="mb-1">
                                             Platform Fee (2%): ₹ {{ number_format($platformFeeTotal, 2) }}
                                         </p>
+                                        <p class="mb-1">
+                                            GST Fee (18%): ₹ {{ number_format($gstFeeTotal, 2) }}
+                                        </p>
                                         {{-- <p class="mb-1">Platform Fee<span class="text-info ml-1"><i
                                     class="feather-info"></i></span><span class="float-right text-dark">$10</span></p> --}}
                                         {{-- @php
@@ -337,7 +343,8 @@
                                         </p> --}}
                                         <hr>
                                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">₹
-                                                {{ number_format($total + $platformFeeTotal, 2) }}</span></h6>
+                                                {{ number_format($total + $platformFeeTotal + $gstFeeTotal, 2) }}</span>
+                                        </h6>
                                     </div>
                                     <div class="p-3">
                                         <script>
@@ -359,7 +366,11 @@
                                             Booking<i class="feather-arrow-right"></i></button>
                                     </div>
                                 @else
-                                    @php $total = 0; @endphp
+                                    @php
+                                        $total = 0;
+                                        $platformFeeTotal = 0;
+                                        $gstFeeTotal = 0;
+                                    @endphp
                                     {{-- @php $totaldiscounted = 0; @endphp --}}
                                     <div class="col-md-12 px-0 border-top">
                                         <div class="">

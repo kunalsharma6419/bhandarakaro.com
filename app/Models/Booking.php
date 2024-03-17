@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BookingItem;
 
 class Booking extends Model
 {
@@ -28,4 +29,9 @@ class Booking extends Model
         'booking_time',
         'tracking_no',
     ];
+
+    public function bookingitems()
+    {
+        return $this->hasMany(BookingItem::class);
+    }
 }

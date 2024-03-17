@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OfferController;
@@ -58,6 +59,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/get-cart-count', [CartController::class,'getCartCount'])->name('get.cart.count');
     Route::get('/checkout', [CheckoutController::class, 'checkout']);
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
+    Route::get('my-bookings', [UserController::class, 'index']);
+    Route::get('view-booking/{trackingno}', [UserController::class, 'view']);
     Route::prefix('superadmin')->group(function () {
         //Locations CRUD
         Route::get('/locations', [LocationController::class, 'index'])->name('superadmin.locations.list');

@@ -64,7 +64,11 @@ class CheckoutController extends Controller
 
         // Add 2% Platform fee to the total
         $platformFee = ($total * 2) / 100;
-        $total += $platformFee;
+        // Calculate GST fee (18%)
+        $gstFee = ($total * 18) / 100;
+
+        // Add platform fee and GST fee to the total
+        $total += $platformFee + $gstFee;
 
         $booking->total_price = $total;
         $booking->booking_date = $request->input('booking_date');
@@ -192,7 +196,7 @@ class CheckoutController extends Controller
             $booking=Booking::latest()->first();
             //return view('testPDF',compact('bookingItem','response','booking'));
            // exit();
-            $pdf = PDF::loadView('testPDF',compact('bookingItem','response','booking'));          
+            $pdf = PDF::loadView('testPDF',compact('bookingItem','response','booking'));
             try {
                 Mail::send('mail', compact('response','booking'), function ($message) use ($data, $pdf) {
                     $message->to($data["email"], $data["client_name"])
