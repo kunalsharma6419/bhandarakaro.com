@@ -31,8 +31,8 @@
 
             <div class="mt-4">
                 <x-jet-label for="address" value="{{ __('Address') }}" />
-                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')"
-                    required />
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address"
+                    placeholder="Format (HNo, City, State, Pincode, Country)" :value="old('address')" required />
             </div>
 
             <div class="mt-4">

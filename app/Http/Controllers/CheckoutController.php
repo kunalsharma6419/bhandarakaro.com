@@ -38,8 +38,18 @@ class CheckoutController extends Controller
         $booking->email = $request->input('email');
         $booking->phone = $request->input('phone');
         $booking->user_address = $request->input('user_address');
-        $booking->booking_temple_name = $request->input('booking_temple_name');
-        $booking->booking_temple_address = $request->input('booking_temple_address');
+        $booking_address_type = $request->input('booking_address_type');
+        $booking->booking_address_type = $booking_address_type;
+
+        if ($booking_address_type === 'Temple') {
+            $booking->booking_temple_name = $request->input('booking_temple_name');
+            $booking->booking_temple_address = $request->input('booking_temple_address');
+            $booking->booking_address = null;
+        } else {
+            $booking->booking_address = $request->input('booking_address');
+            $booking->booking_temple_name = null;
+            $booking->booking_temple_address = null;
+        }
         $booking->city = $request->input('city');
         $booking->state = $request->input('state');
         $booking->country = $request->input('country');
@@ -102,6 +112,33 @@ class CheckoutController extends Controller
         $cartitems = Cart::where('user_id', Auth::id())->get();
         Cart::destroy($cartitems);
 
+        $deliveryAddress = '';
+        if ($booking->booking_address_type === 'Temple') {
+            $deliveryAddress = $booking->booking_temple_address;
+        } else {
+            $deliveryAddress = $booking->booking_address;
+        }
+
+        $userAddress = $booking->user_address;
+
+        // Split the address into parts based on commas and spaces
+        $addressParts = preg_split("/[\s,-]+/", $userAddress);
+
+        // Initialize variables for address components
+        $billingCity = null;
+        $billingState = null;
+        $billingZip = null;
+        $billingCountry = null;
+
+        // Extract city, state, zip, and country from the address parts
+        $partsCount = count($addressParts);
+        if ($partsCount >= 4) {
+            $billingCity = $addressParts[$partsCount - 4]; // City is fourth from the end
+            $billingState = $addressParts[$partsCount - 3]; // State is third from the end
+            $billingZip = $addressParts[$partsCount - 2]; // Zip is second from the end
+            $billingCountry = $addressParts[$partsCount - 1]; // Country is the last part
+        }
+
         // Prepare parameters for the payment gateway
         $parameters = [
             'tid' => $tid,
@@ -113,12 +150,17 @@ class CheckoutController extends Controller
             'productinfo' => 'Order for Bhandara At' . $booking->booking_temple_name,
             'billing_name' => $booking->full_name,
             'billing_address' => $booking->user_address,
-            'billing_city' => $booking->city,
-            'billing_state' => $booking->state,
-            'billing_zip' => $booking->pincode,
-            'billing_country' => $booking->country,
+            'billing_city' => $billingCity,
+            'billing_state' => $billingState,
+            'billing_zip' => $billingZip,
+            'billing_country' => $billingCountry,
             'billing_tel' => $booking->phone,
             'billing_email' => $booking->email,
+            'delivery_address' => $deliveryAddress,
+            'delivery_city' => $booking->city,
+            'delivery_state' => $booking->state,
+            'delivery_zip' => $booking->pincode,
+            'delivery_country' => $booking->country,
             'udf1' => '',
             'udf2' => '',
             'udf3' => '',

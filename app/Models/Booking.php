@@ -16,6 +16,8 @@ class Booking extends Model
         'email',
         'phone',
         'user_address',
+        'booking_address_type',
+        'booking_address',
         'booking_temple_name',
         'booking_temple_address',
         'city',

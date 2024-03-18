@@ -120,15 +120,20 @@
         </div>
         <div class="invoice-info">
             <div class="invoice-number">Invoice for Booking #{{ $booking->id }}</div>
-            <div class="date">{{$response['trans_date']}}</div>
-            <div class="po-number">PO {{$response['tracking_id']}}</div>
-            <div class="attention">Att: {{$response['billing_name']}}</div>
+            <div class="date">{{ $response['trans_date'] }}</div>
+            <div class="po-number">PO {{ $response['tracking_id'] }}</div>
+            <div class="attention">Att: {{ $response['billing_name'] }}</div>
         </div>
-       <div class="greeting">
-            <div class="greeting-text">Dear {{$response['billing_name']}}, I trust this message finds you well.</div>
+        <div class="greeting">
+            <div class="greeting-text">Dear {{ $response['billing_name'] }}, I trust this message finds you well.</div>
             <div class="greeting-text">It was a pleasure serving you and assisting with the arrangements for your
-                upcoming Bhandara event at <strong>{{$booking->booking_temple_name}} , {{$booking->booking_temple_address}}</strong>.</div>
-            <div class="greeting-text">on {{$booking->booking_date}} at {{$booking->booking_time}}.</div>
+                upcoming Bhandara event at
+                @if ($booking->booking_address_type === 'Temple')
+                    <strong>{{ $booking->booking_temple_name }}, {{ $booking->booking_temple_address }}</strong>
+                @else
+                    <strong>{{ $booking->booking_address }}</strong>
+                @endif.</div>
+            <div class="greeting-text">on {{ $booking->booking_date }} at {{ $booking->booking_time }}.</div>
         </div>
         <table class="items-table">
             <thead>
@@ -144,18 +149,18 @@
                 @php
                     $totalAmount = 0;
                 @endphp
-                @foreach($bookingItem as $item)
+                @foreach ($bookingItem as $item)
                     @php
                         $foodproduct = \App\Models\FoodProduct::find($item->prod_id);
-                        $itemAmount = (int)$item->price * (int)$item->qty;
+                        $itemAmount = (int) $item->price * (int) $item->qty;
                         $totalAmount += $itemAmount;
                     @endphp
                     <tr>
-                        <td><strong>{{$loop->index+1}}</strong></td>
-                        <td>{{$foodproduct->name}}</td>
-                        <td>{{$item->qty}}</td>
-                        <td>{{$item->price}}</td>
-                        <td>{{$itemAmount}}</td>
+                        <td><strong>{{ $loop->index + 1 }}</strong></td>
+                        <td>{{ $foodproduct->name }}</td>
+                        <td>{{ $item->qty }}</td>
+                        <td>{{ $item->price }}</td>
+                        <td>{{ $itemAmount }}</td>
                     </tr>
                 @endforeach
                 <tr>
