@@ -128,18 +128,43 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-md-6 form-group">
-                                                        <label class="form-label font-weight-bold small">Booking Temple
-                                                            Name</label>
-                                                        <input placeholder="Booking Temple Name" type="text"
-                                                            class="form-control" name="booking_temple_name" required>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label font-weight-bold small">Booking Address
+                                                        Type</label>
+                                                    <select class="form-control" name="booking_address_type"
+                                                        id="booking_address_type" required>
+                                                        <option value="Temple">Temple</option>
+                                                        <option value="Home">Home</option>
+                                                        <option value="Work">Work</option>
+                                                    </select>
+                                                </div>
+
+
+                                                <div id="temple_address_fields">
+                                                    <div class="row">
+                                                        <div class="col-md-6 form-group">
+                                                            <label class="form-label font-weight-bold small">Booking Temple
+                                                                Name</label>
+                                                            <input placeholder="Booking Temple Name" type="text"
+                                                                class="form-control" name="booking_temple_name">
+                                                        </div>
+                                                        <div class="col-md-6 form-group">
+                                                            <label class="form-label font-weight-bold small">Booking Temple
+                                                                Address</label>
+                                                            <input placeholder="Booking Temple Address" type="text"
+                                                                class="form-control" name="booking_temple_address">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-6 form-group">
-                                                        <label class="form-label font-weight-bold small">Booking Temple
-                                                            Address</label>
-                                                        <input placeholder="Booking Temple Address" type="text"
-                                                            class="form-control" name="booking_temple_address" required>
+                                                </div>
+
+                                                <div id="other_address_field" style="display:none;">
+                                                    <div class="row">
+                                                        <div class="col-md-6 form-group">
+                                                            <label class="form-label font-weight-bold small">Booking
+                                                                Address</label>
+                                                            <input placeholder="Booking Address" type="text"
+                                                                class="form-control" name="booking_address">
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -391,4 +416,27 @@
 
 
     @include('user.components.scripts')
+    <script>
+        document.getElementById('booking_address_type').addEventListener('change', function() {
+            var templeFields = document.getElementById('temple_address_fields');
+            var otherAddressField = document.getElementById('other_address_field');
+            var templeNameInput = document.querySelector('input[name="booking_temple_name"]');
+            var templeAddressInput = document.querySelector('input[name="booking_temple_address"]');
+            var otherAddressInput = document.querySelector('input[name="other_address"]');
+
+            if (this.value === 'Temple') {
+                templeFields.style.display = 'block';
+                otherAddressField.style.display = 'none';
+                templeNameInput.setAttribute('required', 'required');
+                templeAddressInput.setAttribute('required', 'required');
+                otherAddressInput.removeAttribute('required');
+            } else {
+                templeFields.style.display = 'none';
+                otherAddressField.style.display = 'block';
+                templeNameInput.removeAttribute('required');
+                templeAddressInput.removeAttribute('required');
+                otherAddressInput.setAttribute('required', 'required');
+            }
+        });
+    </script>
 @endsection
