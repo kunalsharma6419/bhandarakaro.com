@@ -367,7 +367,26 @@
                                                 class="float-right text-success">₹{{ number_format($totaldiscountedPrice, 2) }}</span>
                                         </p> --}}
                                         <hr>
-                                        <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">₹
+                                        <div class="bg-white p-3 py-3 border-bottom clearfix">
+                                            <div class="input-group-sm mb-2 input-group">
+                                                <input id="promo-code-input" placeholder="Enter promo code"
+                                                    type="text" name="promo_code" class="form-control">
+                                                <div class="input-group-append">
+                                                    <button id="apply-promo-code-btn" type="button"
+                                                        class="btn btn-primary">
+                                                        <i class="feather-percent"></i> APPLY
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div id="discount-message" style="display: none;"
+                                                class="alert alert-success">
+                                                <!-- Message content will be dynamically inserted here -->
+                                            </div>
+
+                                        </div>
+                                        <h6 class="font-weight-bold mb-0">
+                                            TO PAY
+                                            <span id="to-pay" class="float-right">₹
                                                 {{ number_format($total + $platformFeeTotal + $gstFeeTotal, 2) }}</span>
                                         </h6>
                                     </div>
@@ -437,6 +456,49 @@
                 templeAddressInput.removeAttribute('required');
                 otherAddressInput.setAttribute('required', 'required');
             }
+        });
+    </script>
+    <script>
+        document.getElementById('apply-promo-code-btn').addEventListener('click', function() {
+            var promoCode = document.getElementById('promo-code-input').value;
+            var totalPrice = parseFloat("{{ $total + $platformFeeTotal + $gstFeeTotal }}");
+
+            // Retrieve the CSRF token from the meta tag
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+
+            // Make an AJAX request to your backend to apply the promo code
+            // Example using jQuery AJAX:
+            $.ajax({
+                url: '/apply-promo-code',
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
+                },
+                data: {
+                    promo_code: promoCode,
+                    total_price: totalPrice
+                },
+                success: function(response) {
+                    // Update the TO PAY amount with the discounted price
+                    document.getElementById('to-pay').innerText = '₹ ' + response.discountedPrice
+                        .toFixed(2);
+                    // Show a message to the user with the discount percentage and amount
+                    var discountPercentage = (1 - (response.discountedPrice / totalPrice)) * 100;
+                    var discountAmount = totalPrice - response.discountedPrice;
+                    var message = 'Discount applied: ' + discountPercentage.toFixed(2) + '% (₹ ' +
+                        discountAmount.toFixed(2) + ')';
+
+                    // Set the message content
+                    document.getElementById('discount-message').innerText = message;
+                    // Display the message element
+                    document.getElementById('discount-message').style.display = 'block';
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                    // Handle errors if needed
+                }
+            });
         });
     </script>
 @endsection

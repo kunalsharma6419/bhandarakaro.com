@@ -9,6 +9,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Offer;
 use App\Models\Booking;
 use App\Models\BookingItem;
 use App\Models\BookingPayment;
@@ -54,6 +55,8 @@ class CheckoutController extends Controller
         $booking->state = $request->input('state');
         $booking->country = $request->input('country');
         $booking->pincode = $request->input('pincode');
+        // Fetch promo code from the request
+        $promoCode = $request->input('promo_code');
         //To Calculate Total
         $total = 0;
         $cartitems_total = Cart::where('user_id', Auth::id())->get();
@@ -79,6 +82,27 @@ class CheckoutController extends Controller
 
         // Add platform fee and GST fee to the total
         $total += $platformFee + $gstFee;
+
+        // Check if promo code is valid and matches "BHNDARA15"
+        if ($promoCode === 'BHANDARA15') {
+            // Fetch offer with offer_code "BHNDARA15" from the Offer model
+            $offer = Offer::where('offer_code', 'BHANDARA15')->first();
+
+            if ($offer) {
+                // Calculate discount based on offer_discount_percent
+                $discountPercent = $offer->offer_discount_percent;
+                $discountAmount = ($total * $discountPercent) / 100;
+
+                $message = 'Discount applied: ' . number_format($discountAmount, 2) . ' ( ' . number_format($discountPercent, 2) . '% ) on the total order value of ' . number_format($total, 2);
+                // Apply discount to the total price
+                $total -= $discountAmount;
+                // Calculate the discount amount and percentage
+                // $discountPercentage = ($discountAmount / $total) * 100;
+
+                // Save the message in the booking
+                $booking->message = $message;
+            }
+        }
 
         $booking->total_price = $total;
         $booking->booking_date = $request->input('booking_date');
@@ -262,6 +286,35 @@ class CheckoutController extends Controller
             // Something else
             return view('user.pages.payment.error', compact('response'));
         }
+    }
+
+    public function applyPromoCode(Request $request)
+    {
+        // Validate the request data (promo code and total price)
+        $request->validate([
+            'promo_code' => 'required|string',
+            'total_price' => 'required|numeric',
+        ]);
+
+        // Retrieve the promo code from the request
+        $promoCode = $request->input('promo_code');
+
+        // Check if the promo code is valid and retrieve the discount percentage
+        // You need to implement your own logic here to validate and retrieve the discount
+        // For demonstration purposes, let's assume a fixed discount percentage for promo code BHANDARA15
+        $discountPercent = 0;
+
+        if ($promoCode === 'BHANDARA15') {
+            $discountPercent = 15; // Example: 15% discount for promo code BHANDARA15
+        }
+
+        // Calculate the discounted price
+        $discountedPrice = $request->input('total_price') * (1 - ($discountPercent / 100));
+
+        // Return the discounted price as JSON response
+        return response()->json([
+            'discountedPrice' => $discountedPrice,
+        ]);
     }
 
 

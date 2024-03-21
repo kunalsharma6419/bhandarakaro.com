@@ -59,6 +59,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/cart', [CartController::class, 'viewCart']);
     Route::get('/get-cart-count', [CartController::class,'getCartCount'])->name('get.cart.count');
     Route::get('/checkout', [CheckoutController::class, 'checkout']);
+    Route::post('/apply-promo-code', [CheckoutController::class, 'applyPromoCode'])->name('apply-promo-code');
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
     Route::get('my-bookings', [UserController::class, 'index']);
     Route::get('view-booking/{trackingno}', [UserController::class, 'view']);
