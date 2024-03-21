@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\Imports\PincodeImportController;
 use App\Http\Controllers\Admin\Imports\TempleImportController;
 use App\Http\Controllers\Admin\FoodProductController;
+use App\Http\Controllers\Admin\UsersController;
 
 
 /*
@@ -62,6 +63,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('my-bookings', [UserController::class, 'index']);
     Route::get('view-booking/{trackingno}', [UserController::class, 'view']);
     Route::prefix('superadmin')->group(function () {
+        Route::get('/users', [UsersController::class, 'index'])->name('superadmin.users.list');
         //Locations CRUD
         Route::get('/locations', [LocationController::class, 'index'])->name('superadmin.locations.list');
         Route::get('/locations/create', [LocationController::class, 'create'])->name('superadmin.locations.create');

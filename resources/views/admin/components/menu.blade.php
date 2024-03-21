@@ -22,6 +22,13 @@
             </a>
         </li>
 
+        <li class="menu-item">
+            <a href="{{ route('superadmin.users.list') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Register Users</div>
+            </a>
+        </li>
+
         <!-- Layouts -->
         <li class="menu-item {{ request()->routeIs('superadmin.locations.list') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
